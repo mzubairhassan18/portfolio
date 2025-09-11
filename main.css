@@ -42,6 +42,129 @@
   --ocean-deep: #0066cc;
 }
 
+/* Color Scheme 2: Ocean Blue */
+[data-theme="ocean"] {
+  --bg-primary: #0c1445;
+  --bg-secondary: #1a237e;
+  --bg-tertiary: #283593;
+  --text-primary: #e3f2fd;
+  --text-secondary: #bbdefb;
+  --text-muted: #90caf9;
+  --accent-primary: #00bcd4;
+  --accent-secondary: #0097a7;
+  --border-color: rgba(0, 188, 212, 0.2);
+  --card-bg: rgba(26, 35, 126, 0.8);
+  --shadow: rgba(0, 0, 0, 0.4);
+
+  /* Skills Animation Colors - Ocean Theme */
+  --sky-light: #81d4fa;
+  --sky-medium: #4fc3f7;
+  --ocean-surface: #00bcd4;
+  --ocean-deep: #006064;
+}
+
+[data-theme="ocean-light"] {
+  --bg-primary: #e8f5e8;
+  --bg-secondary: #c8e6c9;
+  --bg-tertiary: #a5d6a7;
+  --text-primary: #1b5e20;
+  --text-secondary: #2e7d32;
+  --text-muted: #388e3c;
+  --accent-primary: #00bcd4;
+  --accent-secondary: #0097a7;
+  --border-color: rgba(0, 188, 212, 0.2);
+  --card-bg: rgba(200, 230, 201, 0.9);
+  --shadow: rgba(0, 0, 0, 0.1);
+
+  /* Skills Animation Colors - Ocean Light Theme */
+  --sky-light: #e0f2f1;
+  --sky-medium: #b2dfdb;
+  --ocean-surface: #4db6ac;
+  --ocean-deep: #00695c;
+}
+
+/* Color Scheme 3: Forest Green */
+[data-theme="forest"] {
+  --bg-primary: #0d2818;
+  --bg-secondary: #1b4332;
+  --bg-tertiary: #2d5016;
+  --text-primary: #d8f3dc;
+  --text-secondary: #b7e4c7;
+  --text-muted: #95d5b2;
+  --accent-primary: #52c41a;
+  --accent-secondary: #389e0d;
+  --border-color: rgba(82, 196, 26, 0.2);
+  --card-bg: rgba(27, 67, 50, 0.8);
+  --shadow: rgba(0, 0, 0, 0.4);
+
+  /* Skills Animation Colors - Forest Theme */
+  --sky-light: #a8e6cf;
+  --sky-medium: #7fcdcd;
+  --ocean-surface: #52c41a;
+  --ocean-deep: #135200;
+}
+
+[data-theme="forest-light"] {
+  --bg-primary: #f6ffed;
+  --bg-secondary: #f0f9ff;
+  --bg-tertiary: #e6f7ff;
+  --text-primary: #135200;
+  --text-secondary: #237804;
+  --text-muted: #389e0d;
+  --accent-primary: #52c41a;
+  --accent-secondary: #389e0d;
+  --border-color: rgba(82, 196, 26, 0.2);
+  --card-bg: rgba(240, 249, 255, 0.9);
+  --shadow: rgba(0, 0, 0, 0.1);
+
+  /* Skills Animation Colors - Forest Light Theme */
+  --sky-light: #f0f9ff;
+  --sky-medium: #e0f2fe;
+  --ocean-surface: #7dd3fc;
+  --ocean-deep: #0369a1;
+}
+
+/* Color Scheme 4: Sunset Orange */
+[data-theme="sunset"] {
+  --bg-primary: #2d1b00;
+  --bg-secondary: #4a2c00;
+  --bg-tertiary: #663d00;
+  --text-primary: #fff7ed;
+  --text-secondary: #fed7aa;
+  --text-muted: #fdba74;
+  --accent-primary: #f97316;
+  --accent-secondary: #ea580c;
+  --border-color: rgba(249, 115, 22, 0.2);
+  --card-bg: rgba(74, 44, 0, 0.8);
+  --shadow: rgba(0, 0, 0, 0.4);
+
+  /* Skills Animation Colors - Sunset Theme */
+  --sky-light: #fed7aa;
+  --sky-medium: #fdba74;
+  --ocean-surface: #f97316;
+  --ocean-deep: #c2410c;
+}
+
+[data-theme="sunset-light"] {
+  --bg-primary: #fff7ed;
+  --bg-secondary: #fed7aa;
+  --bg-tertiary: #fdba74;
+  --text-primary: #9a3412;
+  --text-secondary: #c2410c;
+  --text-muted: #ea580c;
+  --accent-primary: #f97316;
+  --accent-secondary: #ea580c;
+  --border-color: rgba(249, 115, 22, 0.2);
+  --card-bg: rgba(254, 215, 170, 0.9);
+  --shadow: rgba(0, 0, 0, 0.1);
+
+  /* Skills Animation Colors - Sunset Light Theme */
+  --sky-light: #fff7ed;
+  --sky-medium: #fed7aa;
+  --ocean-surface: #fb923c;
+  --ocean-deep: #ea580c;
+}
+
 /* Reset and Base Styles */
 * {
   margin: 0;

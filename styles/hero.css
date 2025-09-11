@@ -8,7 +8,7 @@
     135deg,
     var(--bg-primary) 0%,
     var(--bg-tertiary) 50%,
-    #16213e 100%
+    var(--bg-tertiary) 100%
   );
   overflow: hidden;
 }
@@ -31,12 +31,21 @@
 .shape {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    rgba(102, 126, 234, 0.1) 0%,
-    rgba(118, 75, 162, 0.1) 100%
-  );
+  background: linear-gradient(135deg, var(--shadow) 0%, var(--shadow) 100%);
   animation: float 6s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.shape:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px var(--shadow);
 }
 
 .shape-1 {
@@ -47,12 +56,22 @@
   animation-delay: 0s;
 }
 
+.shape-1 i {
+  font-size: 1.8rem;
+  color: var(--accent-primary);
+}
+
 .shape-2 {
   width: 120px;
   height: 120px;
   top: 60%;
   right: 15%;
   animation-delay: 2s;
+}
+
+.shape-2 i {
+  font-size: 2.5rem;
+  color: var(--accent-secondary);
 }
 
 .shape-3 {
@@ -63,12 +82,22 @@
   animation-delay: 4s;
 }
 
+.shape-3 i {
+  font-size: 1.2rem;
+  color: var(--accent-primary);
+}
+
 .shape-4 {
   width: 100px;
   height: 100px;
-  bottom: 20%;
+  bottom: 10%;
   left: 20%;
   animation-delay: 1s;
+}
+
+.shape-4 i {
+  font-size: 2rem;
+  color: var(--accent-secondary);
 }
 
 .hero-content {
@@ -113,7 +142,11 @@
 }
 
 .highlight {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -83,7 +83,11 @@ section {
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 100%
+  );
   border-radius: 2px;
 }
 
@@ -133,12 +137,12 @@ section {
 
 /* Focus States */
 *:focus {
-  outline: 2px solid #667eea;
+  outline: 2px solid var(--accent-primary);
   outline-offset: 2px;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(102, 126, 234, 0.3);
-  color: #fff;
+  background: var(--shadow);
+  color: var(--text-primary);
 }

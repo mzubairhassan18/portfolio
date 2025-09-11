@@ -91,10 +91,10 @@
 @keyframes glow {
   0%,
   100% {
-    box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 5px var(--shadow);
   }
   50% {
-    box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+    box-shadow: 0 0 20px var(--shadow);
   }
 }
 
@@ -204,7 +204,7 @@
 }
 
 .hover-glow:hover {
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 10px 25px var(--shadow);
 }
 
 /* Loading Animations */

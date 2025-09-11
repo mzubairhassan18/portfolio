@@ -76,6 +76,9 @@ async function loadComponents() {
 
     // Initialize theme toggle after components are loaded
     initThemeToggle();
+
+    // Initialize color scheme selector
+    initColorSchemeSelector();
   }, 500);
 }
 
@@ -469,14 +472,35 @@ function initThemeToggle() {
   // Theme toggle event listener
   themeToggle.addEventListener("click", (e) => {
     e.preventDefault();
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    const currentThemeAttr =
+      document.documentElement.getAttribute("data-theme");
 
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-    updateThemeIcon(themeIcon, newTheme);
+    // Determine current base theme
+    let currentBaseTheme = "dark";
+    if (currentThemeAttr === "light" || currentThemeAttr.endsWith("-light")) {
+      currentBaseTheme = "light";
+    }
 
-    console.log(`Theme switched to: ${newTheme}`);
+    const newBaseTheme = currentBaseTheme === "dark" ? "light" : "dark";
+
+    // Get current color scheme
+    const savedScheme = localStorage.getItem("colorScheme") || "default";
+
+    // Apply theme with current color scheme
+    if (savedScheme === "default") {
+      document.documentElement.setAttribute("data-theme", newBaseTheme);
+    } else {
+      const schemeTheme =
+        newBaseTheme === "light" ? `${savedScheme}-light` : savedScheme;
+      document.documentElement.setAttribute("data-theme", schemeTheme);
+    }
+
+    localStorage.setItem("theme", newBaseTheme);
+    updateThemeIcon(themeIcon, newBaseTheme);
+
+    console.log(
+      `Theme switched to: ${newBaseTheme} with scheme: ${savedScheme}`
+    );
   });
 
   console.log("Theme toggle initialized successfully");
@@ -514,12 +538,103 @@ function initThemeToggleWithRetry(maxRetries = 5, delay = 200) {
   tryInit();
 }
 
+// Color Scheme Selector
+function initColorSchemeSelector() {
+  const colorSchemeBtns = document.querySelectorAll(".color-scheme-btn");
+  const mobileColorSchemeBtns = document.querySelectorAll(
+    ".mobile-color-scheme-btn"
+  );
+  const html = document.documentElement;
+
+  // Load saved color scheme from localStorage
+  const savedScheme = localStorage.getItem("colorScheme") || "default";
+  applyColorScheme(savedScheme);
+
+  // Function to update active buttons
+  function updateActiveButtons(scheme) {
+    // Update desktop buttons
+    colorSchemeBtns.forEach((b) => b.classList.remove("active"));
+    const activeDesktopBtn = document.querySelector(
+      `.color-scheme-btn[data-scheme="${scheme}"]`
+    );
+    if (activeDesktopBtn) {
+      activeDesktopBtn.classList.add("active");
+    }
+
+    // Update mobile buttons
+    mobileColorSchemeBtns.forEach((b) => b.classList.remove("active"));
+    const activeMobileBtn = document.querySelector(
+      `.mobile-color-scheme-btn[data-scheme="${scheme}"]`
+    );
+    if (activeMobileBtn) {
+      activeMobileBtn.classList.add("active");
+    }
+  }
+
+  // Add click listeners to desktop color scheme buttons
+  colorSchemeBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const scheme = btn.getAttribute("data-scheme");
+      applyColorScheme(scheme);
+      localStorage.setItem("colorScheme", scheme);
+      updateActiveButtons(scheme);
+    });
+  });
+
+  // Add click listeners to mobile color scheme buttons
+  mobileColorSchemeBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const scheme = btn.getAttribute("data-scheme");
+      applyColorScheme(scheme);
+      localStorage.setItem("colorScheme", scheme);
+      updateActiveButtons(scheme);
+    });
+  });
+
+  // Set initial active buttons
+  updateActiveButtons(savedScheme);
+}
+
+function applyColorScheme(scheme) {
+  const html = document.documentElement;
+  const currentThemeAttr = html.getAttribute("data-theme") || "dark";
+
+  // Determine the base theme (dark/light) from current theme attribute
+  let baseTheme = "dark";
+  if (currentThemeAttr === "light" || currentThemeAttr.endsWith("-light")) {
+    baseTheme = "light";
+  }
+
+  // Remove existing color scheme classes
+  html.classList.remove(
+    "ocean",
+    "ocean-light",
+    "forest",
+    "forest-light",
+    "sunset",
+    "sunset-light"
+  );
+
+  // Apply new color scheme
+  if (scheme === "default") {
+    // Use the base theme (dark/light)
+    html.setAttribute("data-theme", baseTheme);
+  } else {
+    // Apply color scheme with current base theme
+    const schemeTheme = baseTheme === "light" ? `${scheme}-light` : scheme;
+    html.setAttribute("data-theme", schemeTheme);
+  }
+
+  console.log(`🎨 Applied color scheme: ${scheme} (base: ${baseTheme})`);
+}
+
 // Export functions for global access
 window.PortfolioApp = {
   showLoading,
   hideLoading,
   debounce,
   initThemeToggle,
+  initColorSchemeSelector,
 };
 
 // Also make initThemeToggle globally accessible
