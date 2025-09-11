@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact CSS Test</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="styles/sections.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        padding: 2rem;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+      }
+
+      .test-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .test-title {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--text-primary);
+      }
+
+      /* Debug styles */
+      .contact-content {
+        border: 2px solid red !important;
+      }
+
+      .contact-form {
+        border: 2px solid blue !important;
+      }
+
+      .contact-info {
+        border: 2px solid green !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test-container">
+      <h1 class="test-title">Contact CSS Test</h1>
+
+      <!-- Contact Section -->
+      <section class="contact" id="contact">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">
+              Let's work together on your next project
+            </p>
+          </div>
+
+          <div class="contact-content">
+            <div class="contact-info">
+              <h3>Let's Connect</h3>
+              <p>
+                I'm always interested in new opportunities and exciting
+                projects. Whether you have a question or just want to say hi,
+                I'll try my best to get back to you!
+              </p>
+
+              <div class="contact-methods">
+                <div class="contact-method">
+                  <div class="contact-icon">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                      />
+                      <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                  </div>
+                  <div class="contact-details">
+                    <h4>Email</h4>
+                    <p>zubair@example.com</p>
+                  </div>
+                </div>
+
+                <div class="contact-method">
+                  <div class="contact-icon">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="contact-details">
+                    <h4>Phone</h4>
+                    <p>+92 300 123 4567</p>
+                  </div>
+                </div>
+
+                <div class="contact-method">
+                  <div class="contact-icon">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                      />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </div>
+                  <div class="contact-details">
+                    <h4>Location</h4>
+                    <p>Pakistan</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form">
+              <h3>Send me a message</h3>
+              <form id="contactForm">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder=" "
+                    required
+                  />
+                  <label for="name">Your Name</label>
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder=" "
+                    required
+                  />
+                  <label for="email">Your Email</label>
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder=" "
+                    required
+                  />
+                  <label for="subject">Subject</label>
+                </div>
+
+                <div class="form-group">
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder=" "
+                    required
+                  ></textarea>
+                  <label for="message">Your Message</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                  <span>Send Message</span>
+                  <svg class="btn-icon" viewBox="0 0 24 24">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22,2 15,22 11,13 2,9 22,2" />
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // Simple theme toggle functionality
+      function initThemeToggle() {
+        const themeToggle = document.createElement("button");
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        themeToggle.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                border: none;
+                border-radius: 50%;
+                background: var(--accent-primary);
+                color: white;
+                cursor: pointer;
+                z-index: 1000;
+            `;
+
+        document.body.appendChild(themeToggle);
+
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+
+        themeToggle.addEventListener("click", () => {
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+        });
+      }
+
+      // Initialize when DOM is loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        initThemeToggle();
+
+        // Test form submission
+        const form = document.getElementById("contactForm");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Form submitted! (This is just a test)");
+        });
+
+        // Debug info
+        console.log(
+          "Contact content:",
+          document.querySelector(".contact-content")
+        );
+        console.log("Contact form:", document.querySelector(".contact-form"));
+        console.log("Contact info:", document.querySelector(".contact-info"));
+      });
+    </script>
+  </body>
+</html>

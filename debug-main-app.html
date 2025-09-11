@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debug Main App - Theme Toggle</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/navigation.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/sections.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <div id="nav-container"></div>
+
+    <!-- Hero Section -->
+    <div id="hero-container"></div>
+
+    <!-- About Section -->
+    <div id="about-container"></div>
+
+    <!-- Projects Section -->
+    <div id="projects-container"></div>
+
+    <!-- Skills Section -->
+    <div id="skills-container"></div>
+
+    <!-- Contact Section -->
+    <div id="contact-container"></div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Debug Panel -->
+    <div
+      style="
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: var(--card-bg);
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        z-index: 9999;
+        max-width: 300px;
+      "
+    >
+      <h3 style="color: var(--text-primary); margin-bottom: 1rem">
+        Debug Panel
+      </h3>
+      <div
+        id="debug-info"
+        style="color: var(--text-secondary); font-size: 0.9rem"
+      >
+        <div>Theme Toggle: <span id="toggle-status">Checking...</span></div>
+        <div>Current Theme: <span id="theme-status">Checking...</span></div>
+        <div>Initialized: <span id="init-status">Checking...</span></div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+      // Debug script
+      function updateDebugInfo() {
+        const toggle = document.getElementById("theme-toggle");
+        const theme = document.documentElement.getAttribute("data-theme");
+        const initialized = toggle
+          ? toggle.hasAttribute("data-initialized")
+          : false;
+
+        document.getElementById("toggle-status").textContent = toggle
+          ? "Found"
+          : "Not Found";
+        document.getElementById("theme-status").textContent =
+          theme || "Not Set";
+        document.getElementById("init-status").textContent = initialized
+          ? "Yes"
+          : "No";
+      }
+
+      // Update debug info every 500ms
+      setInterval(updateDebugInfo, 500);
+
+      // Initial update
+      setTimeout(updateDebugInfo, 1000);
+    </script>
+  </body>
+</html>
+

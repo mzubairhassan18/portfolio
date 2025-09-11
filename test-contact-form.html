@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form Test</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="styles/sections.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/navigation.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        padding: 2rem;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+      }
+
+      .test-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .test-title {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--text-primary);
+      }
+
+      /* Force visibility */
+      .contact-form,
+      .form-group,
+      .form-group input,
+      .form-group textarea,
+      .form-group label,
+      .btn {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+
+      .btn {
+        display: inline-flex !important;
+      }
+
+      .form-group {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test-container">
+      <h1 class="test-title">Contact Form Visibility Test</h1>
+
+      <div class="contact-form">
+        <h3>Send me a message</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <input type="text" id="name" name="name" placeholder=" " required />
+            <label for="name">Your Name</label>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder=" "
+              required
+            />
+            <label for="email">Your Email</label>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder=" "
+              required
+            />
+            <label for="subject">Subject</label>
+          </div>
+
+          <div class="form-group">
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder=" "
+              required
+            ></textarea>
+            <label for="message">Your Message</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            <span>Send Message</span>
+            <svg class="btn-icon" viewBox="0 0 24 24">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22,2 15,22 11,13 2,9 22,2" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Simple theme toggle functionality
+      function initThemeToggle() {
+        const themeToggle = document.createElement("button");
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        themeToggle.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                border: none;
+                border-radius: 50%;
+                background: var(--accent-primary);
+                color: white;
+                cursor: pointer;
+                z-index: 1000;
+            `;
+
+        document.body.appendChild(themeToggle);
+
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+
+        themeToggle.addEventListener("click", () => {
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+        });
+      }
+
+      // Initialize when DOM is loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        initThemeToggle();
+
+        // Test form submission
+        const form = document.getElementById("contactForm");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Form submitted! (This is just a test)");
+        });
+      });
+    </script>
+  </body>
+</html>

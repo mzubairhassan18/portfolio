@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills Animation Test</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="styles/skills-animation.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container" style="padding: 2rem">
+      <h1
+        style="
+          text-align: center;
+          margin-bottom: 2rem;
+          color: var(--text-primary);
+        "
+      >
+        Skills Animation Test - Slow Waves & Interactive Skills
+      </h1>
+
+      <!-- Animated Skills Environment -->
+      <div class="skills-environment">
+        <!-- Section Header Overlay -->
+        <div class="section-header-overlay">
+          <h2 class="section-title">Skills & Technologies</h2>
+          <p class="section-subtitle">Technologies I work with</p>
+        </div>
+        <!-- Sky Elements -->
+        <div class="sky-elements">
+          <!-- Clouds - Light Mode -->
+          <div class="clouds">
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+            <div class="cloud cloud-4"></div>
+          </div>
+
+          <!-- Moon and Stars - Dark Mode -->
+          <div class="moon-stars">
+            <div class="moon"></div>
+            <div class="stars">
+              <div class="star star-1"></div>
+              <div class="star star-2"></div>
+              <div class="star star-3"></div>
+              <div class="star star-4"></div>
+              <div class="star star-5"></div>
+              <div class="star star-6"></div>
+              <div class="star star-7"></div>
+              <div class="star star-8"></div>
+              <div class="star star-9"></div>
+              <div class="star star-10"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Falling Skills -->
+        <div class="falling-skills" id="falling-skills">
+          <!-- Skills will be dynamically generated here -->
+        </div>
+
+        <!-- Water Animation -->
+        <div class="water-container">
+          <div class="water-surface"></div>
+          <div class="water-waves">
+            <div class="wave wave-1"></div>
+            <div class="wave wave-2"></div>
+            <div class="wave wave-3"></div>
+          </div>
+          <div class="water-depth"></div>
+
+          <!-- Ocean Rocks -->
+          <div class="ocean-rocks">
+            <!-- Large underwater rocks -->
+            <div class="rock rock-large"></div>
+            <div class="rock rock-large-2"></div>
+            <div class="rock rock-large-3"></div>
+            <div class="rock rock-large-4"></div>
+
+            <!-- Medium rocks -->
+            <div class="rock rock-medium"></div>
+            <div class="rock rock-medium-2"></div>
+            <div class="rock rock-medium-3"></div>
+
+            <!-- Small rocks -->
+            <div class="rock rock-small"></div>
+            <div class="rock rock-small-2"></div>
+            <div class="rock rock-small-3"></div>
+            <div class="rock rock-small-4"></div>
+
+            <!-- Rocks extending above sea level -->
+            <div class="rock rock-island"></div>
+            <div class="rock rock-island-2"></div>
+            <div class="rock rock-island-3"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme Toggle -->
+      <div style="text-align: center; margin-top: 2rem">
+        <button
+          id="theme-toggle"
+          style="
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+          "
+        >
+          Toggle Theme
+        </button>
+      </div>
+    </div>
+
+    <script src="js/skills-animation.js"></script>
+    <script>
+      // Initialize skills animation
+      document.addEventListener("DOMContentLoaded", () => {
+        initSkillsAnimation();
+
+        // Theme toggle
+        const themeToggle = document.getElementById("theme-toggle");
+        themeToggle.addEventListener("click", () => {
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          const newTheme = currentTheme === "light" ? "dark" : "light";
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      });
+    </script>
+  </body>
+</html>

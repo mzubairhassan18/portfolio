@@ -1,0 +1,957 @@
+/* Skills Animation Styles */
+
+/* Override section padding for skills section */
+.skills {
+  padding: 0 !important;
+}
+
+.skills-environment {
+  position: relative;
+  height: 660px;
+  width: 100vw;
+  max-width: none;
+  margin: 0 calc(-50vw + 50%);
+  background: linear-gradient(
+    180deg,
+    var(--sky-light) 0%,
+    var(--sky-medium) 50%,
+    var(--ocean-surface) 80%,
+    var(--ocean-deep) 100%
+  );
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Header Overlay */
+.section-header-overlay {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.section-header-overlay .section-title {
+  color: var(--text-primary);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section-header-overlay .section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode overlay styling */
+[data-theme="dark"] .section-header-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .section-header-overlay .section-title {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .section-header-overlay .section-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Sky Elements - Clouds for Light Mode, Moon & Stars for Dark Mode */
+.sky-elements {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 120px;
+  z-index: 1;
+}
+
+/* Clouds - Light Mode Only */
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+[data-theme="dark"] .clouds {
+  opacity: 0;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  opacity: 0.7;
+  animation: floatCloud 20s infinite linear;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+}
+
+.cloud-1 {
+  width: 80px;
+  height: 30px;
+  top: 20px;
+  left: -100px;
+  animation-duration: 25s;
+}
+
+.cloud-1::before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 10px;
+}
+
+.cloud-1::after {
+  width: 60px;
+  height: 40px;
+  top: -15px;
+  right: 10px;
+}
+
+.cloud-2 {
+  width: 60px;
+  height: 25px;
+  top: 40px;
+  left: -80px;
+  animation-duration: 30s;
+  animation-delay: -5s;
+}
+
+.cloud-2::before {
+  width: 40px;
+  height: 40px;
+  top: -20px;
+  left: 8px;
+}
+
+.cloud-2::after {
+  width: 50px;
+  height: 30px;
+  top: -10px;
+  right: 8px;
+}
+
+.cloud-3 {
+  width: 70px;
+  height: 28px;
+  top: 15px;
+  left: -90px;
+  animation-duration: 35s;
+  animation-delay: -10s;
+}
+
+.cloud-3::before {
+  width: 45px;
+  height: 45px;
+  top: -22px;
+  left: 12px;
+}
+
+.cloud-3::after {
+  width: 55px;
+  height: 35px;
+  top: -12px;
+  right: 12px;
+}
+
+.cloud-4 {
+  width: 50px;
+  height: 20px;
+  top: 50px;
+  left: -70px;
+  animation-duration: 40s;
+  animation-delay: -15s;
+}
+
+.cloud-4::before {
+  width: 35px;
+  height: 35px;
+  top: -17px;
+  left: 6px;
+}
+
+.cloud-4::after {
+  width: 40px;
+  height: 25px;
+  top: -8px;
+  right: 6px;
+}
+
+@keyframes floatCloud {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(calc(100vw + 100px));
+  }
+}
+
+/* Moon and Stars - Dark Mode Only */
+.moon-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+[data-theme="dark"] .moon-stars {
+  opacity: 1;
+}
+
+/* Moon */
+.moon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 20px;
+  right: 20%;
+  background: radial-gradient(circle at 30% 30%, #f8f8ff, #e6e6fa, #d3d3d3);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(248, 248, 255, 0.3),
+    0 0 40px rgba(248, 248, 255, 0.1);
+  animation: moonGlow 4s ease-in-out infinite alternate;
+}
+
+.moon::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  width: 8px;
+  height: 8px;
+  background: rgba(200, 200, 200, 0.6);
+  border-radius: 50%;
+  box-shadow: 15px 10px 0 rgba(200, 200, 200, 0.4),
+    25px 5px 0 rgba(200, 200, 200, 0.3), 10px 25px 0 rgba(200, 200, 200, 0.5);
+}
+
+@keyframes moonGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(248, 248, 255, 0.3),
+      0 0 40px rgba(248, 248, 255, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(248, 248, 255, 0.5),
+      0 0 60px rgba(248, 248, 255, 0.2);
+  }
+}
+
+/* Stars */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+}
+
+.star {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: twinkle 2s infinite;
+}
+
+.star-1 {
+  width: 2px;
+  height: 2px;
+  top: 30px;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.star-2 {
+  width: 3px;
+  height: 3px;
+  top: 50px;
+  left: 25%;
+  animation-delay: 0.5s;
+}
+
+.star-3 {
+  width: 1px;
+  height: 1px;
+  top: 20px;
+  left: 40%;
+  animation-delay: 1s;
+}
+
+.star-4 {
+  width: 2px;
+  height: 2px;
+  top: 70px;
+  left: 55%;
+  animation-delay: 1.5s;
+}
+
+.star-5 {
+  width: 4px;
+  height: 4px;
+  top: 40px;
+  left: 70%;
+  animation-delay: 0.3s;
+}
+
+.star-6 {
+  width: 2px;
+  height: 2px;
+  top: 60px;
+  left: 85%;
+  animation-delay: 0.8s;
+}
+
+.star-7 {
+  width: 1px;
+  height: 1px;
+  top: 25px;
+  left: 15%;
+  animation-delay: 1.2s;
+}
+
+.star-8 {
+  width: 3px;
+  height: 3px;
+  top: 80px;
+  left: 35%;
+  animation-delay: 0.7s;
+}
+
+.star-9 {
+  width: 2px;
+  height: 2px;
+  top: 45px;
+  left: 65%;
+  animation-delay: 1.8s;
+}
+
+.star-10 {
+  width: 1px;
+  height: 1px;
+  top: 35px;
+  left: 90%;
+  animation-delay: 0.2s;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Falling Skills */
+.falling-skills {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.skill-icon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: var(--card-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--text-primary);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid var(--border-color);
+  animation: fallDown 8s infinite linear;
+}
+
+.skill-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.skill-icon.clicked {
+  animation: instantDrop 0.5s ease-in;
+}
+
+.skill-icon::before {
+  content: attr(data-skill);
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  background: var(--card-bg);
+  padding: 4px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Skill Categories Colors */
+.skill-icon.frontend {
+  background: linear-gradient(135deg, #61dafb, #21d4fd);
+  color: white;
+}
+
+.skill-icon.backend {
+  background: linear-gradient(135deg, #68d391, #38a169);
+  color: white;
+}
+
+.skill-icon.database {
+  background: linear-gradient(135deg, #f6ad55, #ed8936);
+  color: white;
+}
+
+.skill-icon.tools {
+  background: linear-gradient(135deg, #9f7aea, #805ad5);
+  color: white;
+}
+
+@keyframes fallDown {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(150px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(300px) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(450px) rotate(2deg);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(600px) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+/* Skill click animation - stop and enlarge */
+.skill-icon.clicked {
+  animation: none !important;
+  transition: all 0.3s ease-out;
+  z-index: 10;
+}
+
+/* Ripple Effect */
+.skill-ripple {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.3);
+  animation: rippleExpand 0.6s ease-out;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes rippleExpand {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 120px;
+    height: 120px;
+    margin-left: -60px;
+    margin-top: -60px;
+    opacity: 0;
+  }
+}
+
+/* Water Animation - Realistic Ocean */
+.water-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.water-surface {
+  position: absolute;
+  top: 0;
+  left: -50px;
+  right: -50px;
+  height: 80px;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 144, 255, 0.4) 0%,
+    rgba(0, 100, 200, 0.6) 50%,
+    rgba(0, 50, 150, 0.8) 100%
+  );
+  /* Extend beyond container to avoid rectangular ends */
+}
+
+.water-waves {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  right: 0;
+  height: 50px;
+}
+
+.wave {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C150,120 300,0 450,60 C600,120 750,0 900,60 C1050,120 1200,0 1200,60 L1200,120 L0,120 Z' fill='rgba(30,144,255,0.4)'/%3E%3C/svg%3E")
+    repeat-x;
+  animation: realisticWaveMove 25s infinite linear;
+}
+
+.wave-1 {
+  animation-duration: 30s;
+  opacity: 0.9;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,80 C100,140 250,20 400,80 C550,140 700,20 850,80 C1000,140 1150,20 1200,80 L1200,120 L0,120 Z' fill='rgba(30,144,255,0.5)'/%3E%3C/svg%3E")
+    repeat-x;
+}
+
+.wave-2 {
+  animation-duration: 35s;
+  animation-delay: -5s;
+  opacity: 0.7;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,40 C200,100 400,0 600,40 C800,100 1000,0 1200,40 L1200,120 L0,120 Z' fill='rgba(0,100,200,0.6)'/%3E%3C/svg%3E")
+    repeat-x;
+}
+
+.wave-3 {
+  animation-duration: 40s;
+  animation-delay: -10s;
+  opacity: 0.5;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,100 C300,60 500,140 700,100 C900,60 1100,140 1200,100 L1200,120 L0,120 Z' fill='rgba(0,50,150,0.4)'/%3E%3C/svg%3E")
+    repeat-x;
+}
+
+@keyframes realisticWaveMove {
+  0% {
+    transform: translateX(0) scaleY(1);
+  }
+  25% {
+    transform: translateX(-25%) scaleY(1.05);
+  }
+  50% {
+    transform: translateX(-50%) scaleY(0.95);
+  }
+  75% {
+    transform: translateX(-75%) scaleY(1.08);
+  }
+  100% {
+    transform: translateX(-100%) scaleY(1);
+  }
+}
+
+.water-depth {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 50, 150, 0.8) 0%,
+    rgba(0, 30, 100, 0.9) 50%,
+    rgba(0, 20, 80, 1) 100%
+  );
+}
+
+/* Realistic ocean foam */
+.water-container::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40'%3E%3Cpath d='M0,20 C100,0 200,40 300,20 C400,0 500,40 600,20 C700,0 800,40 900,20 C1000,0 1100,40 1200,20 L1200,40 L0,40 Z' fill='rgba(255,255,255,0.3)'/%3E%3C/svg%3E")
+    repeat-x;
+  animation: foamMove 6s infinite linear;
+}
+
+@keyframes foamMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Ocean Rocks - Underwater Landscape */
+.ocean-rocks {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.rock {
+  position: absolute;
+  background: linear-gradient(135deg, #2c3e50, #34495e, #2c3e50);
+  border-radius: 50% 40% 60% 30%;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Large underwater rocks */
+.rock-large {
+  width: 60px;
+  height: 40px;
+  bottom: 20px;
+  left: 10%;
+  background: linear-gradient(135deg, #2c3e50, #34495e, #2c3e50);
+  border-radius: 50% 40% 60% 30%;
+}
+
+.rock-large-2 {
+  width: 80px;
+  height: 35px;
+  bottom: 15px;
+  left: 30%;
+  background: linear-gradient(135deg, #34495e, #2c3e50, #34495e);
+  border-radius: 40% 60% 30% 50%;
+}
+
+.rock-large-3 {
+  width: 70px;
+  height: 45px;
+  bottom: 25px;
+  left: 60%;
+  background: linear-gradient(135deg, #2c3e50, #34495e, #2c3e50);
+  border-radius: 60% 30% 50% 40%;
+}
+
+.rock-large-4 {
+  width: 90px;
+  height: 30px;
+  bottom: 10px;
+  left: 80%;
+  background: linear-gradient(135deg, #34495e, #2c3e50, #34495e);
+  border-radius: 30% 50% 40% 60%;
+}
+
+/* Medium rocks */
+.rock-medium {
+  width: 40px;
+  height: 25px;
+  bottom: 30px;
+  left: 20%;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  border-radius: 45% 55% 35% 65%;
+}
+
+.rock-medium-2 {
+  width: 35px;
+  height: 30px;
+  bottom: 35px;
+  left: 45%;
+  background: linear-gradient(135deg, #34495e, #2c3e50);
+  border-radius: 55% 35% 65% 45%;
+}
+
+.rock-medium-3 {
+  width: 45px;
+  height: 20px;
+  bottom: 25px;
+  left: 75%;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  border-radius: 35% 65% 45% 55%;
+}
+
+/* Small rocks */
+.rock-small {
+  width: 20px;
+  height: 15px;
+  bottom: 40px;
+  left: 15%;
+  background: linear-gradient(135deg, #34495e, #2c3e50);
+  border-radius: 50% 50% 40% 60%;
+}
+
+.rock-small-2 {
+  width: 25px;
+  height: 12px;
+  bottom: 45px;
+  left: 35%;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  border-radius: 40% 60% 50% 50%;
+}
+
+.rock-small-3 {
+  width: 18px;
+  height: 18px;
+  bottom: 42px;
+  left: 55%;
+  background: linear-gradient(135deg, #34495e, #2c3e50);
+  border-radius: 60% 40% 50% 50%;
+}
+
+.rock-small-4 {
+  width: 22px;
+  height: 14px;
+  bottom: 38px;
+  left: 85%;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  border-radius: 50% 50% 60% 40%;
+}
+
+/* Rocks extending above sea level */
+.rock-island {
+  width: 50px;
+  height: 60px;
+  bottom: 40px;
+  left: 5%;
+  background: linear-gradient(135deg, #2c3e50, #34495e, #2c3e50);
+  border-radius: 50% 40% 60% 30%;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.rock-island-2 {
+  width: 45px;
+  height: 55px;
+  bottom: 35px;
+  left: 50%;
+  background: linear-gradient(135deg, #34495e, #2c3e50, #34495e);
+  border-radius: 40% 60% 30% 50%;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.rock-island-3 {
+  width: 40px;
+  height: 50px;
+  bottom: 45px;
+  left: 90%;
+  background: linear-gradient(135deg, #2c3e50, #34495e, #2c3e50);
+  border-radius: 60% 30% 50% 40%;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Rock details and textures */
+.rock::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  box-shadow: 10px 5px 0 rgba(0, 0, 0, 0.1), -5px 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+.rock::after {
+  content: "";
+  position: absolute;
+  top: 60%;
+  right: 25%;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  box-shadow: -8px 3px 0 rgba(255, 255, 255, 0.05),
+    5px -8px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Skills Legend */
+.skills-legend {
+  text-align: center;
+  margin: 2rem calc(-50vw + 50%) 0;
+  padding: 1.5rem 2rem;
+  background: var(--card-bg);
+  border-radius: 0;
+  border: 1px solid var(--border-color);
+  width: 100vw;
+}
+
+.skills-legend p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.legend-items {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+}
+
+.legend-item::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-item:nth-child(1)::before {
+  background: linear-gradient(135deg, #61dafb, #21d4fd);
+}
+
+.legend-item:nth-child(2)::before {
+  background: linear-gradient(135deg, #68d391, #38a169);
+}
+
+.legend-item:nth-child(3)::before {
+  background: linear-gradient(135deg, #f6ad55, #ed8936);
+}
+
+.legend-item:nth-child(4)::before {
+  background: linear-gradient(135deg, #9f7aea, #805ad5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skills-environment {
+    height: 550px;
+    margin: 0 calc(-50vw + 50%);
+  }
+
+  .section-header-overlay {
+    top: 30px;
+    padding: 1.5rem 2rem;
+  }
+
+  .section-header-overlay .section-title {
+    font-size: 2rem;
+  }
+
+  .section-header-overlay .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .skill-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .skill-icon::before {
+    font-size: 10px;
+    bottom: -20px;
+  }
+
+  .legend-items {
+    gap: 1rem;
+  }
+
+  .legend-item {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-environment {
+    margin: 2rem calc(-50vw + 50%);
+  }
+
+  .skills-legend {
+    margin: 2rem calc(-50vw + 50%) 0;
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .skills-environment {
+  background: linear-gradient(
+    180deg,
+    #1a1a2e 0%,
+    #16213e 50%,
+    #0f3460 80%,
+    #0a1929 100%
+  );
+}
+
+[data-theme="dark"] .cloud {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .cloud::before,
+[data-theme="dark"] .cloud::after {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .water-surface {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 30, 80, 0.4) 0%,
+    rgba(0, 20, 60, 0.6) 50%,
+    rgba(0, 10, 40, 0.8) 100%
+  );
+}
+
+[data-theme="dark"] .water-depth {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 20, 60, 0.8) 0%,
+    rgba(0, 10, 40, 0.9) 50%,
+    rgba(0, 5, 20, 1) 100%
+  );
+}
+
+[data-theme="dark"] .water-container::before {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40'%3E%3Cpath d='M0,20 C100,0 200,40 300,20 C400,0 500,40 600,20 C700,0 800,40 900,20 C1000,0 1100,40 1200,20 L1200,40 L0,40 Z' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E")
+    repeat-x;
+}

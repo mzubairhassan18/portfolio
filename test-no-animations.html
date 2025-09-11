@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Without Animations</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="styles/navigation.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/sections.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Override animations to ensure visibility */
+      .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .project-card,
+      .skill-category,
+      .contact-method {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      /* Ensure all sections are visible */
+      section {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      .projects,
+      .skills,
+      .contact {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-text">MZH</span>
+        </div>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-moon theme-icon"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">
+            Some of my recent work and side projects
+          </p>
+        </div>
+        <div class="projects-container">
+          <div class="projects-scroll">
+            <div class="project-card featured">
+              <div class="project-image">
+                <div class="project-placeholder">
+                  <i class="fas fa-chart-line project-icon"></i>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">EasyTrack</h3>
+                <p class="project-description">
+                  Finance management application for tracking income and
+                  expenses with comprehensive analytics and reporting features.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Node.js</span>
+                  <span class="tech-tag">MongoDB</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Skills & Technologies</h2>
+          <p class="section-subtitle">Technologies I work with</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3 class="category-title">Frontend</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <span class="skill-name">React</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">JavaScript</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="95%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">
+            Let's work together on your next project
+          </p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Let's Connect</h3>
+            <p>
+              I'm always interested in new opportunities and exciting projects.
+            </p>
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                <div class="contact-details">
+                  <h4>Email</h4>
+                  <p>zubair@example.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" id="name" name="name" required />
+                <label for="name">Your Name</label>
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" name="email" required />
+                <label for="email">Your Email</label>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <span>Send Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Simple theme toggle functionality
+      function initThemeToggle() {
+        const themeToggle = document.getElementById("theme-toggle");
+        const themeIcon = document.querySelector(".theme-icon");
+
+        if (!themeToggle || !themeIcon) {
+          console.log("Theme toggle elements not found");
+          return;
+        }
+
+        // Get saved theme or default to dark
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        updateThemeIcon(themeIcon, savedTheme);
+
+        // Theme toggle event listener
+        themeToggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+          updateThemeIcon(themeIcon, newTheme);
+
+          console.log(`Theme switched to: ${newTheme}`);
+        });
+
+        console.log("Theme toggle initialized successfully");
+      }
+
+      function updateThemeIcon(icon, theme) {
+        if (theme === "light") {
+          icon.className = "fas fa-sun theme-icon";
+        } else {
+          icon.className = "fas fa-moon theme-icon";
+        }
+      }
+
+      // Initialize when DOM is loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        initThemeToggle();
+      });
+    </script>
+  </body>
+</html>

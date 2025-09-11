@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Theme Toggle Test</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="styles/navigation.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        padding: 100px 20px;
+        text-align: center;
+      }
+      .test-card {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 16px;
+        border: 1px solid var(--border-color);
+        max-width: 600px;
+        margin: 2rem auto;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-text">MZH</span>
+        </div>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-moon theme-icon"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <h1 style="color: var(--text-primary); margin-bottom: 2rem">
+      Theme Toggle Test
+    </h1>
+    <p style="color: var(--text-secondary); margin-bottom: 2rem">
+      Click the toggle button in the navigation to switch between light and dark
+      modes.
+    </p>
+
+    <div class="test-card">
+      <h2 style="color: var(--text-primary); margin-bottom: 1rem">Test Card</h2>
+      <p style="color: var(--text-secondary)">
+        This card should change colors when you toggle the theme.
+      </p>
+    </div>
+
+    <script>
+      // Simple theme toggle functionality
+      function initThemeToggle() {
+        const themeToggle = document.getElementById("theme-toggle");
+        const themeIcon = document.querySelector(".theme-icon");
+
+        if (!themeToggle || !themeIcon) {
+          console.log("Theme toggle elements not found");
+          return;
+        }
+
+        // Get saved theme or default to dark
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        updateThemeIcon(themeIcon, savedTheme);
+
+        // Theme toggle event listener
+        themeToggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+          updateThemeIcon(themeIcon, newTheme);
+
+          console.log(`Theme switched to: ${newTheme}`);
+        });
+
+        console.log("Theme toggle initialized successfully");
+      }
+
+      function updateThemeIcon(icon, theme) {
+        if (theme === "light") {
+          icon.className = "fas fa-sun theme-icon";
+        } else {
+          icon.className = "fas fa-moon theme-icon";
+        }
+      }
+
+      // Initialize when DOM is loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        initThemeToggle();
+      });
+    </script>
+  </body>
+</html>
