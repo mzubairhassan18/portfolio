@@ -11,10 +11,13 @@ html {
 }
 
 body {
-  /* Account for safe area insets on mobile devices with notches */
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: 70px; /* Account for fixed header */
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: calc(70px + env(safe-area-inset-top, 0px));
+  }
 }
 
 /* Container */
