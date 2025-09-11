@@ -11,6 +11,8 @@
   transition: all 0.3s ease;
   /* Safe area insets for devices with notches */
   padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 [data-theme="light"] .navbar {
@@ -34,9 +36,8 @@
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  /* Add safe area padding for horizontal insets */
-  padding-left: max(20px, env(safe-area-inset-left));
-  padding-right: max(20px, env(safe-area-inset-right));
+  /* Adjust height for safe area */
+  min-height: calc(70px + env(safe-area-inset-top));
 }
 
 .nav-logo .logo-text {
@@ -221,9 +222,6 @@
     align-items: center;
     padding-top: 2rem;
     transition: left 0.3s ease;
-    /* Add safe area padding for horizontal insets */
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
   }
 
   [data-theme="light"] .nav-menu {
@@ -276,5 +274,14 @@
 
   [data-theme="light"] .theme-toggle:hover .theme-icon {
     transform: translateX(25px) rotate(180deg) scale(1.1);
+  }
+
+  /* Additional safe area adjustments for mobile */
+  .navbar {
+    padding-top: max(env(safe-area-inset-top), 0px);
+  }
+
+  .nav-container {
+    min-height: calc(70px + max(env(safe-area-inset-top), 0px));
   }
 }
