@@ -126,18 +126,16 @@
 
 /* Theme Toggle */
 .theme-toggle {
-  position: relative;
-  width: 60px;
-  height: 30px;
-  background: var(--card-bg);
+  background: transparent;
   border: 2px solid var(--border-color);
-  border-radius: 15px;
+  border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  padding: 2px;
-  overflow: hidden;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   outline: none;
   user-select: none;
   z-index: 10;
@@ -147,66 +145,46 @@
 .theme-toggle:hover {
   border-color: var(--accent-primary);
   box-shadow: 0 0 10px var(--shadow);
+  transform: scale(1.05);
 }
 
 .theme-toggle:active {
   transform: scale(0.95);
 }
 
-.theme-toggle::before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 22px;
-  height: 22px;
-  background: linear-gradient(
-    135deg,
-    var(--accent-primary) 0%,
-    var(--accent-secondary) 100%
-  );
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  z-index: 1;
-}
-
 .theme-icon {
-  position: relative;
-  z-index: 2;
-  font-size: 0.8rem;
-  color: white;
+  font-size: 1.2rem;
+  color: var(--text-primary);
   transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-}
-
-/* Dark mode state */
-[data-theme="dark"] .theme-toggle::before {
-  transform: translateX(0);
-}
-
-[data-theme="dark"] .theme-icon {
-  transform: rotate(0deg);
-}
-
-/* Light mode state */
-[data-theme="light"] .theme-toggle::before {
-  transform: translateX(30px);
-}
-
-[data-theme="light"] .theme-icon {
-  transform: rotate(180deg);
 }
 
 .theme-toggle:hover .theme-icon {
+  color: var(--accent-primary);
   transform: scale(1.1);
 }
 
-[data-theme="light"] .theme-toggle:hover .theme-icon {
-  transform: translateX(30px) rotate(180deg) scale(1.1);
+/* Default state - hide both icons initially */
+.theme-icon.fa-moon,
+.theme-icon.fa-sun {
+  display: none;
+}
+
+/* Dark mode state - show moon icon, hide sun icon */
+[data-theme="dark"] .theme-icon.fa-moon {
+  display: inline-block;
+}
+
+[data-theme="dark"] .theme-icon.fa-sun {
+  display: none;
+}
+
+/* Light mode state - show sun icon, hide moon icon */
+[data-theme="light"] .theme-icon.fa-moon {
+  display: none;
+}
+
+[data-theme="light"] .theme-icon.fa-sun {
+  display: inline-block;
 }
 
 /* Nav Actions */
@@ -263,6 +241,8 @@
 /* Mobile Color Scheme Selector */
 .mobile-color-scheme-selector {
   display: none;
+  position: relative;
+  z-index: 10;
 }
 
 .mobile-color-scheme-container {
@@ -270,11 +250,31 @@
   gap: 8px;
   padding: 8px 12px;
   background: var(--card-bg);
-  border-radius: 20px;
+  border-radius: 25px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   border: 1px solid var(--border-color);
-  box-shadow: 0 4px 12px var(--shadow);
+  border-top: none;
+  box-shadow: 0 4px 20px var(--shadow);
   width: fit-content;
-  margin: 8px auto 0 auto;
+  margin: 0 auto;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+/* Mobile Theme Toggle */
+.mobile-theme-toggle {
+  display: none;
+}
+
+/* Mobile Logo */
+.mobile-logo {
+  display: none;
+}
+
+/* Mobile Nav Toggle */
+.mobile-nav-toggle {
+  display: none;
 }
 
 .mobile-color-scheme-btn {
@@ -316,14 +316,71 @@
   .nav-container {
     height: calc(70px + env(safe-area-inset-top, 0px));
     padding-top: env(safe-area-inset-top, 0px);
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
+    position: relative;
   }
 
+  /* Hide desktop logo on mobile */
+  .desktop-logo {
+    display: none;
+  }
+
+  /* Show mobile theme toggle */
+  .mobile-theme-toggle {
+    display: flex;
+    order: 1;
+  }
+
+  /* Show mobile logo */
+  .mobile-logo {
+    display: flex;
+    order: 2;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    align-items: end;
+  }
+
+  .mobile-logo .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(
+      135deg,
+      var(--accent-primary) 0%,
+      var(--accent-secondary) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-logo .logo-text:hover {
+    transform: scale(1.05);
+  }
+
+  /* Show mobile nav toggle */
+  .mobile-nav-toggle {
+    display: flex;
+    order: 3;
+  }
+
+  /* Show mobile color scheme selector below navigation */
   .mobile-color-scheme-selector {
     display: block;
-    order: 2;
+    position: absolute;
+    top: calc(100% + 0px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  /* Hide desktop nav toggle */
+  .nav-toggle {
+    display: none;
   }
 
   .nav-menu {
@@ -361,18 +418,6 @@
     background: var(--shadow);
   }
 
-  .nav-toggle {
-    display: flex;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .nav-logo {
-    order: 1;
-  }
-
   .nav-actions {
     display: none; /* Hide desktop color scheme selector on mobile */
   }
@@ -387,26 +432,19 @@
   }
 
   .theme-toggle {
-    width: 50px;
-    height: 25px;
-  }
-
-  .theme-toggle::before {
-    width: 19px;
-    height: 19px;
+    width: 35px;
+    height: 35px;
   }
 
   .theme-icon {
-    width: 19px;
-    height: 19px;
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
 
-  [data-theme="light"] .theme-toggle::before {
-    transform: translateX(25px);
+  /* Mobile color scheme container positioning */
+  .mobile-color-scheme-container {
+    margin: 0;
+    position: relative;
   }
 
-  [data-theme="light"] .theme-toggle:hover .theme-icon {
-    transform: translateX(25px) rotate(180deg) scale(1.1);
-  }
+  /* Remove extending line effect for centered positioning */
 }

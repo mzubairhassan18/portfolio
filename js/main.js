@@ -448,29 +448,20 @@ function initProjectsScroll() {
 
 // Simplified Theme Toggle functionality
 function initThemeToggle() {
-  const themeToggle = document.getElementById("theme-toggle");
-  const themeIcon = document.querySelector(".theme-icon");
+  const mobileThemeToggle = document.getElementById("mobile-theme-toggle");
+  const desktopThemeToggle = document.getElementById("desktop-theme-toggle");
 
-  if (!themeToggle || !themeIcon) {
+  if (!mobileThemeToggle && !desktopThemeToggle) {
     console.log("Theme toggle elements not found");
     return;
   }
 
-  // Check if already initialized
-  if (themeToggle.hasAttribute("data-initialized")) {
-    return;
-  }
-
-  // Mark as initialized
-  themeToggle.setAttribute("data-initialized", "true");
-
   // Get saved theme or default to dark
   const savedTheme = localStorage.getItem("theme") || "dark";
   document.documentElement.setAttribute("data-theme", savedTheme);
-  updateThemeIcon(themeIcon, savedTheme);
 
-  // Theme toggle event listener
-  themeToggle.addEventListener("click", (e) => {
+  // Theme toggle event handler
+  function handleThemeToggle(e) {
     e.preventDefault();
     const currentThemeAttr =
       document.documentElement.getAttribute("data-theme");
@@ -496,22 +487,38 @@ function initThemeToggle() {
     }
 
     localStorage.setItem("theme", newBaseTheme);
-    updateThemeIcon(themeIcon, newBaseTheme);
 
     console.log(
       `Theme switched to: ${newBaseTheme} with scheme: ${savedScheme}`
     );
-  });
+  }
+
+  // Bind event listeners to both toggles
+  if (
+    mobileThemeToggle &&
+    !mobileThemeToggle.hasAttribute("data-initialized")
+  ) {
+    mobileThemeToggle.addEventListener("click", handleThemeToggle);
+    mobileThemeToggle.setAttribute("data-initialized", "true");
+    console.log("Mobile theme toggle initialized");
+  }
+
+  if (
+    desktopThemeToggle &&
+    !desktopThemeToggle.hasAttribute("data-initialized")
+  ) {
+    desktopThemeToggle.addEventListener("click", handleThemeToggle);
+    desktopThemeToggle.setAttribute("data-initialized", "true");
+    console.log("Desktop theme toggle initialized");
+  }
 
   console.log("Theme toggle initialized successfully");
 }
 
 function updateThemeIcon(icon, theme) {
-  if (theme === "light") {
-    icon.className = "fas fa-sun theme-icon";
-  } else {
-    icon.className = "fas fa-moon theme-icon";
-  }
+  // This function is no longer needed since we're using CSS to show/hide icons
+  // The theme attribute on the document element will control which icon is visible
+  console.log(`Theme updated to: ${theme}`);
 }
 
 // Theme Toggle functionality with retry mechanism
@@ -519,10 +526,10 @@ function initThemeToggleWithRetry(maxRetries = 5, delay = 200) {
   let retries = 0;
 
   function tryInit() {
-    const themeToggle = document.getElementById("theme-toggle");
-    const themeIcon = document.querySelector(".theme-icon");
+    const mobileThemeToggle = document.getElementById("mobile-theme-toggle");
+    const desktopThemeToggle = document.getElementById("desktop-theme-toggle");
 
-    if (themeToggle && themeIcon) {
+    if (mobileThemeToggle || desktopThemeToggle) {
       initThemeToggle();
       return;
     }

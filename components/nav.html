@@ -1,10 +1,37 @@
 <nav class="navbar" id="navbar">
   <div class="nav-container">
-    <div class="nav-logo">
+    <!-- Mobile Theme Toggle (Left) -->
+    <div class="mobile-theme-toggle">
+      <button
+        class="theme-toggle"
+        id="mobile-theme-toggle"
+        aria-label="Toggle theme"
+      >
+        <i class="fas fa-moon theme-icon"></i>
+        <i class="fas fa-sun theme-icon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Logo (Center) -->
+    <div class="mobile-logo">
       <span class="logo-text">MZH</span>
     </div>
 
-    <!-- Mobile Color Scheme Selector -->
+    <!-- Mobile Hamburger Menu (Right) -->
+    <div class="mobile-nav-toggle">
+      <div class="nav-toggle" id="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+
+    <!-- Desktop Logo -->
+    <div class="nav-logo desktop-logo">
+      <span class="logo-text">MZH</span>
+    </div>
+
+    <!-- Mobile Color Scheme Selector (Below Navigation) -->
     <div class="mobile-color-scheme-selector" id="mobile-color-scheme-selector">
       <div class="mobile-color-scheme-container">
         <button
@@ -117,15 +144,14 @@
           ></span>
         </button>
       </div>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <button
+        class="theme-toggle"
+        id="desktop-theme-toggle"
+        aria-label="Toggle theme"
+      >
         <i class="fas fa-moon theme-icon"></i>
+        <i class="fas fa-sun theme-icon"></i>
       </button>
-    </div>
-
-    <div class="nav-toggle" id="nav-toggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
     </div>
   </div>
 </nav>
