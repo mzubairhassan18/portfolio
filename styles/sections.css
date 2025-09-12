@@ -313,9 +313,14 @@
   .contact-form form,
   .contact-form .form-group,
   .contact-form input,
-  .contact-form textarea,
-  .contact-form button {
+  .contact-form textarea {
     display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .contact-form button {
+    display: inline-flex !important;
     visibility: visible !important;
     opacity: 1 !important;
   }
@@ -369,9 +374,14 @@
 }
 
 .contact-form input,
-.contact-form textarea,
-.contact-form button {
+.contact-form textarea {
   display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.contact-form button {
+  display: inline-flex !important;
   visibility: visible !important;
   opacity: 1 !important;
 }

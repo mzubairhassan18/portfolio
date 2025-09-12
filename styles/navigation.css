@@ -339,8 +339,6 @@
     order: 2;
     justify-content: center;
     flex: 1;
-    height: 100%;
-    align-items: end;
   }
 
   .mobile-logo .logo-text {
