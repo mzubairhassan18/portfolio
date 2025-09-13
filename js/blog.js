@@ -427,19 +427,33 @@ function openBlogPost(slug) {
 
   console.log("Using modal body:", finalModalBody);
 
-  // Populate modal content
+  // Update modal header with post metadata
+  const modalHeader = modal.querySelector(".blog-post-modal-header");
+  if (modalHeader) {
+    modalHeader.innerHTML = `
+      <div class="blog-post-header-content">
+        <div class="blog-post-meta">
+          <span class="blog-post-date">${formatDate(post.date)}</span>
+          <span class="blog-post-category">${post.category}</span>
+        </div>
+        <h1 class="blog-post-modal-title">${post.title}</h1>
+        <div class="blog-post-author">
+          <div class="author-avatar">${post.author.charAt(0)}</div>
+          <span>By ${post.author}</span>
+        </div>
+      </div>
+      <button class="blog-post-modal-close" onclick="closeBlogPostModal()">
+        <svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    `;
+  }
+
+  // Populate modal content (without metadata)
   finalModalBody.innerHTML = `
     <div class="blog-post-content">
-      <div class="blog-post-meta">
-        <span class="blog-post-date">${formatDate(post.date)}</span>
-        <span class="blog-post-category">${post.category}</span>
-      </div>
-      <h1>${post.title}</h1>
-      <div class="blog-post-author">
-        <div class="author-avatar">${post.author.charAt(0)}</div>
-        <span>By ${post.author}</span>
-      </div>
-      <hr>
       ${post.content}
     </div>
   `;

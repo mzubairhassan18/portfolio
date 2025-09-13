@@ -164,36 +164,8 @@
   }
 }
 
-/* Text fallback for close button */
-.blog-modal-close .close-text {
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 1;
-  display: none; /* Hide by default, show only if SVG fails */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--text-primary) !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: none;
-}
-
-/* Show text fallback if SVG is not visible */
-.blog-modal-close:not(:has(svg)) .close-text,
-.blog-modal-close svg:not([width]) + .close-text {
-  display: block !important;
-}
-
-/* Show text if SVG is not visible */
+/* Ensure SVG is always visible */
 .blog-modal-close svg {
-  display: block;
-}
-
-/* Removed problematic CSS rule that was hiding SVG without width attribute */
-
-.blog-modal-close:not(:has(svg)) .close-text {
   display: block;
 }
 
@@ -462,8 +434,89 @@
   padding: 1.5rem 2rem;
   border-bottom: 1px solid var(--border-color);
   display: flex;
-  justify-content: flex-end;
+  align-items: flex-start;
+  justify-content: space-between;
   background: var(--bg-secondary);
+  gap: 1rem;
+}
+
+.blog-post-header-content {
+  flex: 1;
+  min-width: 0; /* Allow content to shrink */
+}
+
+.blog-post-modal-title {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0.5rem 0 0.75rem 0;
+  line-height: 1.3;
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.blog-post-modal-header .blog-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.blog-post-modal-header .blog-post-date {
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 100%
+  );
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.blog-post-modal-header .blog-post-category {
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+}
+
+.blog-post-modal-header .blog-post-author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.blog-post-modal-header .author-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 0.7rem;
 }
 
 .blog-post-modal-close {
@@ -741,9 +794,37 @@
     max-height: 95vh;
   }
 
+  .blog-post-modal-header {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .blog-post-header-content {
+    width: 100%;
+  }
+
+  .blog-post-modal-title {
+    font-size: 1.5rem;
+    margin: 0.25rem 0 0.5rem 0;
+  }
+
+  .blog-post-modal-header .blog-post-meta {
+    margin-bottom: 0.25rem;
+  }
+
+  .blog-post-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+
   .blog-post-modal-body {
     padding: 1.5rem;
-    max-height: calc(95vh - 80px);
+    max-height: calc(95vh - 120px);
   }
 
   .blog-post-content h1 {
@@ -795,11 +876,474 @@
     font-size: 1.25rem;
   }
 
+  .blog-post-modal-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .blog-post-modal-title {
+    font-size: 1.25rem;
+    margin: 0.1rem 0 0.25rem 0;
+  }
+
+  .blog-post-modal-header .blog-post-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .blog-post-modal-header .blog-post-date,
+  .blog-post-modal-header .blog-post-category {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .blog-post-modal-header .blog-post-author {
+    font-size: 0.75rem;
+  }
+
+  .blog-post-modal-header .author-avatar {
+    width: 18px;
+    height: 18px;
+    font-size: 0.65rem;
+  }
+
+  .blog-post-modal-close {
+    top: 0.75rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+  }
+
   .blog-post-modal-body {
     padding: 1rem;
   }
 
   .blog-post-content {
     font-size: 1rem;
+  }
+}
+
+/* Advanced Blog Modal Graphic Hero Styles */
+.blog-post-modal .graphic-hero {
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 30%,
+    var(--accent-primary) 60%,
+    var(--accent-secondary) 100%
+  );
+  background-size: 400% 400%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: blogGradientShift 8s ease-in-out infinite;
+}
+
+/* Animated gradient background for blog modal */
+@keyframes blogGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating particles background for blog modal */
+.blog-post-modal .graphic-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(255, 255, 255, 0.12) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 60%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 60% 30%,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 50%
+    );
+  animation: blogParticleFloat 12s ease-in-out infinite;
+}
+
+@keyframes blogParticleFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-15px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* Advanced shimmer overlay for blog modal */
+.blog-post-modal .graphic-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 30%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.3) 70%,
+    transparent 100%
+  );
+  animation: blogShimmerSweep 4s ease-in-out infinite;
+}
+
+@keyframes blogShimmerSweep {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Advanced hero icon for blog modal */
+.blog-post-modal .hero-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  z-index: 2;
+  position: relative;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4))
+    drop-shadow(0 0 25px rgba(255, 255, 255, 0.4));
+  animation: blogIconFloat 5s ease-in-out infinite;
+  background: linear-gradient(45deg, #fff, #f8f9fa, #fff, #e9ecef, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 300% 300%;
+  animation: blogIconFloat 5s ease-in-out infinite,
+    blogIconShine 4s ease-in-out infinite;
+}
+
+@keyframes blogIconFloat {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) scale(1.05) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.1) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-12px) scale(1.05) rotate(-2deg);
+  }
+}
+
+@keyframes blogIconShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Advanced hero title for blog modal */
+.blog-post-modal .hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f8f9fa 25%,
+    #ffffff 50%,
+    #e9ecef 75%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  text-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  animation: blogTitleGlow 3s ease-in-out infinite alternate,
+    blogTitleShine 6s ease-in-out infinite;
+}
+
+@keyframes blogTitleGlow {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+  }
+}
+
+@keyframes blogTitleShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Advanced hero subtitle for blog modal */
+.blog-post-modal .hero-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  margin-bottom: 2rem;
+  z-index: 2;
+  position: relative;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  letter-spacing: 1px;
+  animation: blogSubtitleFloat 4s ease-in-out infinite;
+}
+
+@keyframes blogSubtitleFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Advanced decoration for blog modal */
+.blog-post-modal .hero-decoration {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 2;
+  position: relative;
+}
+
+.blog-post-modal .decoration-line {
+  width: 50px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.8) 25%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.8) 75%,
+    transparent 100%
+  );
+  border-radius: 3px;
+  animation: blogLinePulse 3s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes blogLinePulse {
+  0%,
+  100% {
+    transform: scaleX(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scaleX(1.3);
+    opacity: 1;
+  }
+}
+
+.blog-post-modal .decoration-dots {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.blog-post-modal .decoration-dots span {
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.7) 60%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  border-radius: 50%;
+  display: block;
+  animation: blogDotBounce 2s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+.blog-post-modal .decoration-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+.blog-post-modal .decoration-dots span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.blog-post-modal .decoration-dots span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes blogDotBounce {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.3);
+  }
+}
+
+/* Dark theme adjustments for blog modal graphic hero */
+[data-theme="dark"] .blog-post-modal .graphic-hero {
+  background: linear-gradient(
+    135deg,
+    #1a1a2e 0%,
+    #16213e 30%,
+    #0f1419 60%,
+    #1a1a2e 100%
+  );
+  background-size: 400% 400%;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .blog-post-modal .hero-title {
+  background: linear-gradient(
+    135deg,
+    #e0e0e0 0%,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #d0d0d0 75%,
+    #e0e0e0 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dark"] .blog-post-modal .hero-subtitle {
+  color: rgba(224, 224, 224, 0.9);
+}
+
+[data-theme="dark"] .blog-post-modal .decoration-line {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(224, 224, 224, 0.6) 25%,
+    rgba(224, 224, 224, 0.8) 50%,
+    rgba(224, 224, 224, 0.6) 75%,
+    transparent 100%
+  );
+  box-shadow: 0 0 15px rgba(224, 224, 224, 0.4);
+}
+
+[data-theme="dark"] .blog-post-modal .decoration-dots span {
+  background: radial-gradient(
+    circle,
+    rgba(224, 224, 224, 0.9) 0%,
+    rgba(224, 224, 224, 0.6) 60%,
+    rgba(224, 224, 224, 0.2) 100%
+  );
+  box-shadow: 0 0 15px rgba(224, 224, 224, 0.5);
+}
+
+/* Responsive advanced blog modal graphic hero */
+@media (max-width: 768px) {
+  .blog-post-modal .graphic-hero {
+    height: 220px;
+  }
+
+  .blog-post-modal .hero-icon {
+    font-size: 4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-post-modal .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .blog-post-modal .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-post-modal .decoration-line {
+    width: 40px;
+    height: 3px;
+  }
+
+  .blog-post-modal .decoration-dots span {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-post-modal .graphic-hero {
+    height: 180px;
+  }
+
+  .blog-post-modal .hero-icon {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-post-modal .hero-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-post-modal .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-post-modal .decoration-line {
+    width: 35px;
+  }
+
+  .blog-post-modal .decoration-dots {
+    gap: 0.4rem;
+  }
+
+  .blog-post-modal .decoration-dots span {
+    width: 8px;
+    height: 8px;
   }
 }
