@@ -176,44 +176,46 @@ async function loadBlogPosts() {
 async function simulateBlogLoading() {
   return new Promise(async (resolve) => {
     setTimeout(async () => {
-      // Simulate parsing markdown files
+      // Load HTML blog posts
       blogPosts = [
         {
-          id: "intro-to-cs",
-          title: "Introduction to Computer Science",
+          id: "nextjs-vuejs-angularjs-comparison",
+          title: "Next.js vs Vue.js vs Angular.js: Complete Comparison",
           excerpt:
-            "Computer Science is a fascinating field that combines mathematics, engineering, and creativity to solve complex problems. In this blog post, I'll share my journey into the world of computer science...",
-          date: "2025-09-09",
-          category: "Computer Science",
-          author: "Muhammad Zubair ul Hassan",
-          content: await loadMarkdownContent("blogs/sep-9-2025/intro-to-cs.md"),
-          slug: "intro-to-cs",
-        },
-        {
-          id: "web-development-trends",
-          title: "Web Development Trends in 2025",
-          excerpt:
-            "Web development continues to evolve at a rapid pace, with new technologies and frameworks emerging regularly. As we navigate through 2025, several trends are shaping the future...",
-          date: "2025-10-15",
+            "Choosing the right JavaScript framework is crucial for modern web development. In this comprehensive comparison, we'll analyze Next.js, Vue.js, and Angular.js across multiple dimensions to help you make an informed decision for your next project.",
+          date: "2025-12-15",
           category: "Web Development",
           author: "Muhammad Zubair ul Hassan",
-          content: await loadMarkdownContent(
-            "blogs/oct-15-2025/web-development-trends.md"
+          content: await loadHTMLContent(
+            "blogs/dec-15-2025/nextjs-vuejs-angularjs-comparison.html"
           ),
-          slug: "web-development-trends",
+          slug: "nextjs-vuejs-angularjs-comparison",
         },
         {
-          id: "portfolio-development",
-          title: "Building My Portfolio Website",
+          id: "web-development-roadmap",
+          title: "Complete Web Development Roadmap 2025",
           excerpt:
-            "Creating a personal portfolio website is one of the most rewarding projects for any developer. It's not just a showcase of your work—it's a reflection of your skills, creativity...",
-          date: "2025-11-20",
-          category: "Personal Projects",
+            "Embarking on a web development journey can be overwhelming with the vast array of technologies available. This comprehensive roadmap will guide you through the essential skills, tools, and technologies needed to become a successful web developer in 2025.",
+          date: "2025-12-20",
+          category: "Web Development",
           author: "Muhammad Zubair ul Hassan",
-          content: await loadMarkdownContent(
-            "blogs/nov-20-2025/portfolio-development.md"
+          content: await loadHTMLContent(
+            "blogs/dec-20-2025/web-development-roadmap.html"
           ),
-          slug: "portfolio-development",
+          slug: "web-development-roadmap",
+        },
+        {
+          id: "requirement-engineering-software-development",
+          title: "Requirement Engineering & Software Development Process",
+          excerpt:
+            "Requirement Engineering is the foundation of successful software development. It involves systematically gathering, analyzing, documenting, and managing requirements to ensure that software systems meet user needs and business objectives.",
+          date: "2025-12-25",
+          category: "Software Engineering",
+          author: "Muhammad Zubair ul Hassan",
+          content: await loadHTMLContent(
+            "blogs/dec-25-2025/requirement-engineering-software-development.html"
+          ),
+          slug: "requirement-engineering-software-development",
         },
       ];
       resolve();
@@ -221,7 +223,26 @@ async function simulateBlogLoading() {
   });
 }
 
-// Load markdown content (simplified version)
+// Load HTML content
+async function loadHTMLContent(filePath) {
+  try {
+    const response = await fetch(filePath);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    const html = await response.text();
+    // Extract content from the article tag
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const articleContent = doc.querySelector(".blog-post-content");
+    return articleContent ? articleContent.innerHTML : html;
+  } catch (error) {
+    console.error(`Error loading ${filePath}:`, error);
+    return "<p>Error loading blog post content.</p>";
+  }
+}
+
+// Load markdown content (simplified version) - kept for backward compatibility
 async function loadMarkdownContent(filePath) {
   try {
     const response = await fetch(filePath);

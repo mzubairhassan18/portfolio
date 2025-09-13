@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requirement Engineering & Software Development Process</title>
+</head>
+<body>
+    <article class="blog-post">
+        <header class="blog-post-header">
+            <div class="blog-post-meta">
+                <span class="blog-post-date">December 25, 2025</span>
+                <span class="blog-post-category">Software Engineering</span>
+            </div>
+            <h1>Requirement Engineering & Software Development Process</h1>
+            <div class="blog-post-author">
+                <div class="author-avatar">M</div>
+                <span>By Muhammad Zubair ul Hassan</span>
+            </div>
+        </header>
+
+        <div class="blog-post-content">
+            <div class="hero-image">
+                <img src="images/requirement-engineering-hero.jpg" alt="Software development process visualization" loading="lazy">
+                <div class="image-caption">Understanding the foundation of successful software development</div>
+            </div>
+
+            <section class="overview">
+                <h2>Overview</h2>
+                <p>Requirement Engineering is the foundation of successful software development. It involves systematically gathering, analyzing, documenting, and managing requirements to ensure that software systems meet user needs and business objectives. This comprehensive guide explores the industry-standard processes and methodologies that drive successful software development projects.</p>
+            </section>
+
+            <section class="requirement-engineering-intro">
+                <h2>What is Requirement Engineering?</h2>
+                <p>Requirement Engineering is a systematic process of defining, documenting, and maintaining requirements throughout the software development lifecycle. It serves as a bridge between business stakeholders and technical teams, ensuring that software solutions align with business goals and user expectations.</p>
+                
+                <div class="key-principles">
+                    <h3>Key Principles</h3>
+                    <div class="principles-grid">
+                        <div class="principle-item">
+                            <h4>🎯 Clarity</h4>
+                            <p>Requirements must be clear, unambiguous, and easily understood by all stakeholders.</p>
+                        </div>
+                        <div class="principle-item">
+                            <h4>✅ Completeness</h4>
+                            <p>All necessary requirements should be captured without gaps or omissions.</p>
+                        </div>
+                        <div class="principle-item">
+                            <h4>🔍 Consistency</h4>
+                            <p>Requirements should not conflict with each other or with business constraints.</p>
+                        </div>
+                        <div class="principle-item">
+                            <h4>📏 Verifiability</h4>
+                            <p>Requirements must be testable and measurable to ensure they can be validated.</p>
+                        </div>
+                        <div class="principle-item">
+                            <h4>🔄 Traceability</h4>
+                            <p>Requirements should be traceable from origin to implementation and testing.</p>
+                        </div>
+                        <div class="principle-item">
+                            <h4>⚖️ Feasibility</h4>
+                            <p>Requirements must be technically and economically feasible to implement.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="requirement-types">
+                <h2>Types of Requirements</h2>
+                <div class="requirement-categories">
+                    <div class="requirement-category">
+                        <h3>📋 Functional Requirements</h3>
+                        <p>Describe what the system should do - the specific behaviors and functions it must perform.</p>
+                        <div class="examples">
+                            <h4>Examples:</h4>
+                            <ul>
+                                <li>User authentication and authorization</li>
+                                <li>Data processing and storage</li>
+                                <li>Report generation</li>
+                                <li>Integration with external systems</li>
+                                <li>Business rule implementation</li>
+                            </ul>
+                        </div>
+                        <div class="example-format">
+                            <h4>Format:</h4>
+                            <blockquote>
+                                "The system shall allow users to create, read, update, and delete customer records with appropriate access controls."
+                            </blockquote>
+                        </div>
+                    </div>
+
+                    <div class="requirement-category">
+                        <h3>⚡ Non-Functional Requirements</h3>
+                        <p>Describe how the system should perform - quality attributes and constraints.</p>
+                        <div class="examples">
+                            <h4>Examples:</h4>
+                            <ul>
+                                <li><strong>Performance:</strong> Response time, throughput</li>
+                                <li><strong>Security:</strong> Data protection, access control</li>
+                                <li><strong>Usability:</strong> User interface design, accessibility</li>
+                                <li><strong>Reliability:</strong> Uptime, error handling</li>
+                                <li><strong>Scalability:</strong> Growth capacity</li>
+                            </ul>
+                        </div>
+                        <div class="example-format">
+                            <h4>Format:</h4>
+                            <blockquote>
+                                "The system shall respond to user requests within 2 seconds under normal load conditions."
+                            </blockquote>
+                        </div>
+                    </div>
+
+                    <div class="requirement-category">
+                        <h3>🏗️ System Requirements</h3>
+                        <p>Technical specifications for hardware, software, and network infrastructure.</p>
+                        <div class="examples">
+                            <h4>Examples:</h4>
+                            <ul>
+                                <li>Operating system compatibility</li>
+                                <li>Database requirements</li>
+                                <li>Network bandwidth needs</li>
+                                <li>Browser compatibility</li>
+                                <li>Third-party integrations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="requirement-category">
+                        <h3>📊 Business Requirements</h3>
+                        <p>High-level business objectives and goals that the system must support.</p>
+                        <div class="examples">
+                            <h4>Examples:</h4>
+                            <ul>
+                                <li>Increase customer satisfaction</li>
+                                <li>Reduce operational costs</li>
+                                <li>Improve data accuracy</li>
+                                <li>Comply with regulations</li>
+                                <li>Enable business growth</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="requirement-process">
+                <h2>Requirement Engineering Process</h2>
+                <div class="process-phases">
+                    <div class="phase">
+                        <div class="phase-header">
+                            <div class="phase-number">1</div>
+                            <h3>Requirement Elicitation</h3>
+                        </div>
+                        <div class="phase-content">
+                            <p><strong>Objective:</strong> Gather requirements from stakeholders</p>
+                            <div class="techniques">
+                                <h4>Techniques:</h4>
+                                <ul>
+                                    <li><strong>Interviews:</strong> One-on-one discussions with stakeholders</li>
+                                    <li><strong>Surveys:</strong> Structured questionnaires for large groups</li>
+                                    <li><strong>Workshops:</strong> Collaborative sessions with multiple stakeholders</li>
+                                    <li><strong>Observation:</strong> Watching users perform their tasks</li>
+                                    <li><strong>Prototyping:</strong> Creating mockups to gather feedback</li>
+                                    <li><strong>Document Analysis:</strong> Reviewing existing documentation</li>
+                                </ul>
+                            </div>
+                            <div class="deliverables">
+                                <h4>Deliverables:</h4>
+                                <ul>
+                                    <li>Stakeholder analysis</li>
+                                    <li>Initial requirement list</li>
+                                    <li>Context diagrams</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase">
+                        <div class="phase-header">
+                            <div class="phase-number">2</div>
+                            <h3>Requirement Analysis</h3>
+                        </div>
+                        <div class="phase-content">
+                            <p><strong>Objective:</strong> Analyze and refine gathered requirements</p>
+                            <div class="techniques">
+                                <h4>Activities:</h4>
+                                <ul>
+                                    <li><strong>Conflict Resolution:</strong> Resolve contradictory requirements</li>
+                                    <li><strong>Gap Analysis:</strong> Identify missing requirements</li>
+                                    <li><strong>Feasibility Study:</strong> Assess technical and economic viability</li>
+                                    <li><strong>Risk Assessment:</strong> Identify potential risks and mitigation strategies</li>
+                                    <li><strong>Prioritization:</strong> Rank requirements by importance and urgency</li>
+                                </ul>
+                            </div>
+                            <div class="deliverables">
+                                <h4>Deliverables:</h4>
+                                <ul>
+                                    <li>Analyzed requirements</li>
+                                    <li>Requirement traceability matrix</li>
+                                    <li>Risk register</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase">
+                        <div class="phase-header">
+                            <div class="phase-number">3</div>
+                            <h3>Requirement Specification</h3>
+                        </div>
+                        <div class="phase-content">
+                            <p><strong>Objective:</strong> Document requirements in a structured format</p>
+                            <div class="techniques">
+                                <h4>Documentation Standards:</h4>
+                                <ul>
+                                    <li><strong>IEEE 830:</strong> Software Requirements Specification</li>
+                                    <li><strong>User Stories:</strong> Agile format for requirements</li>
+                                    <li><strong>Use Cases:</strong> Detailed interaction scenarios</li>
+                                    <li><strong>Business Rules:</strong> Formal business logic</li>
+                                    <li><strong>Data Models:</strong> Entity-relationship diagrams</li>
+                                </ul>
+                            </div>
+                            <div class="deliverables">
+                                <h4>Deliverables:</h4>
+                                <ul>
+                                    <li>Software Requirements Specification (SRS)</li>
+                                    <li>User stories and acceptance criteria</li>
+                                    <li>Use case diagrams</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase">
+                        <div class="phase-header">
+                            <div class="phase-number">4</div>
+                            <h3>Requirement Validation</h3>
+                        </div>
+                        <div class="phase-content">
+                            <p><strong>Objective:</strong> Verify requirements are correct and complete</p>
+                            <div class="techniques">
+                                <h4>Validation Methods:</h4>
+                                <ul>
+                                    <li><strong>Reviews:</strong> Peer and stakeholder reviews</li>
+                                    <li><strong>Prototyping:</strong> Build and test prototypes</li>
+                                    <li><strong>Simulation:</strong> Model system behavior</li>
+                                    <li><strong>Testing:</strong> Validate requirements through testing</li>
+                                    <li><strong>Walkthroughs:</strong> Step-by-step requirement review</li>
+                                </ul>
+                            </div>
+                            <div class="deliverables">
+                                <h4>Deliverables:</h4>
+                                <ul>
+                                    <li>Validated requirements</li>
+                                    <li>Review reports</li>
+                                    <li>Approval documentation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase">
+                        <div class="phase-header">
+                            <div class="phase-number">5</div>
+                            <h3>Requirement Management</h3>
+                        </div>
+                        <div class="phase-content">
+                            <p><strong>Objective:</strong> Manage requirements throughout the project lifecycle</p>
+                            <div class="techniques">
+                                <h4>Management Activities:</h4>
+                                <ul>
+                                    <li><strong>Change Control:</strong> Manage requirement changes</li>
+                                    <li><strong>Version Control:</strong> Track requirement versions</li>
+                                    <li><strong>Traceability:</strong> Maintain requirement relationships</li>
+                                    <li><strong>Status Tracking:</strong> Monitor requirement progress</li>
+                                    <li><strong>Communication:</strong> Keep stakeholders informed</li>
+                                </ul>
+                            </div>
+                            <div class="deliverables">
+                                <h4>Deliverables:</h4>
+                                <ul>
+                                    <li>Requirement change log</li>
+                                    <li>Traceability matrix</li>
+                                    <li>Status reports</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="software-development-methodologies">
+                <h2>Software Development Methodologies</h2>
+                <div class="methodology-overview">
+                    <p>Software development methodologies provide structured approaches to managing the development process. Each methodology has its strengths and is suited for different types of projects.</p>
+                </div>
+
+                <div class="methodologies">
+                    <div class="methodology">
+                        <h3>🔄 Agile Development</h3>
+                        <div class="methodology-content">
+                            <p><strong>Philosophy:</strong> Iterative development with frequent collaboration and adaptation</p>
+                            <div class="methodology-details">
+                                <h4>Key Principles:</h4>
+                                <ul>
+                                    <li>Individuals and interactions over processes and tools</li>
+                                    <li>Working software over comprehensive documentation</li>
+                                    <li>Customer collaboration over contract negotiation</li>
+                                    <li>Responding to change over following a plan</li>
+                                </ul>
+                            </div>
+                            <div class="methodology-details">
+                                <h4>Frameworks:</h4>
+                                <ul>
+                                    <li><strong>Scrum:</strong> Sprint-based development with defined roles</li>
+                                    <li><strong>Kanban:</strong> Continuous flow with visual workflow</li>
+                                    <li><strong>Extreme Programming (XP):</strong> Technical practices focus</li>
+                                </ul>
+                            </div>
+                            <div class="methodology-details">
+                                <h4>Best For:</h4>
+                                <p>Projects with changing requirements, innovative products, and collaborative teams</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="methodology">
+                        <h3>📋 Waterfall Development</h3>
+                        <div class="methodology-content">
+                            <p><strong>Philosophy:</strong> Sequential phases with comprehensive planning upfront</p>
+                            <div class="methodology-details">
+                                <h4>Phases:</h4>
+                                <ol>
+                                    <li>Requirements Analysis</li>
+                                    <li>System Design</li>
+                                    <li>Implementation</li>
+                                    <li>Testing</li>
+                                    <li>Deployment</li>
+                                    <li>Maintenance</li>
+                                </ol>
+                            </div>
+                            <div class="methodology-details">
+                                <h4>Characteristics:</h4>
+                                <ul>
+                                    <li>Linear and sequential</li>
+                                    <li>Comprehensive documentation</li>
+                                    <li>Clear milestones</li>
+                                    <li>Minimal customer involvement during development</li>
+                                </ul>
+                            </div>
+                            <div class="methodology-details">
+                                <h4>Best For:</h4>
+                                <p>Projects with well-defined requirements, regulatory compliance, and stable technology</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="methodology">
+                        <h3>🔄 DevOps</h3>
+                        <div class="methodology-content">
+                            <p><strong>Philosophy:</strong> Integration of development and operations for continuous delivery</p>
+                            <div class="methodology-details">
+                                <h4>Key Practices:</h4>
+                                <ul>
+                                    <li>Continuous Integration (CI)</li>
+                                    <li>Continuous Deployment (CD)</li>
+                                    <li>Infrastructure as Code</li>
+                                    <li>Automated Testing</li>
+                                    <li>Monitoring and Logging</li>
+                                </ul>
+                            </div>
+                            <div class="methodology-details">
+                                <h4>Benefits:</h4>
+                                <ul>
+                                    <li>Faster time to market</li>
+                                    <li>Improved quality</li>
+                                    <li>Better collaboration</li>
+                                    <li>Reduced deployment risks</li>
+                                </ul>
+                            </div>
+                            <div class="methodology-details">
+                                <h4>Best For:</h4>
+                                <p>Web applications, cloud-native systems, and teams requiring rapid deployment</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="methodology">
+                        <h3>🎯 Lean Development</h3>
+                        <div class="methodology-content">
+                            <p><strong>Philosophy:</strong> Eliminate waste and focus on value delivery</p>
+                            <div class="methodology-details">
+                                <h4>Principles:</h4>
+                                <ul>
+                                    <li>Eliminate waste</li>
+                                    <li>Amplify learning</li>
+                                    <li>Decide as late as possible</li>
+                                    <li>Deliver as fast as possible</li>
+                                    <li>Empower the team</li>
+                                    <li>Build integrity in</li>
+                                    <li>See the whole</li>
+                                </ul>
+                            </div>
+                            <div class="methodology-details">
+                                <h4>Focus Areas:</h4>
+                                <ul>
+                                    <li>Value stream mapping</li>
+                                    <li>Continuous improvement</li>
+                                    <li>Customer value</li>
+                                    <li>Waste elimination</li>
+                                </ul>
+                            </div>
+                            <div class="methodology-details">
+                                <h4>Best For:</strong>
+                                <p>Startups, innovation projects, and teams focused on efficiency</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="industry-processes">
+                <h2>Industry-Standard Processes</h2>
+                <div class="process-standards">
+                    <div class="standard">
+                        <h3>🏢 Enterprise Software Development</h3>
+                        <div class="standard-content">
+                            <h4>Typical Process:</h4>
+                            <ol>
+                                <li><strong>Business Case Development:</strong> ROI analysis and project justification</li>
+                                <li><strong>Stakeholder Analysis:</strong> Identify all parties involved</li>
+                                <li><strong>Requirements Gathering:</strong> Comprehensive requirement collection</li>
+                                <li><strong>Architecture Design:</strong> System architecture and technology selection</li>
+                                <li><strong>Development:</strong> Iterative development with regular reviews</li>
+                                <li><strong>Testing:</strong> Comprehensive testing including UAT</li>
+                                <li><strong>Deployment:</strong> Phased rollout with rollback plans</li>
+                                <li><strong>Maintenance:</strong> Ongoing support and updates</li>
+                            </ol>
+                            <div class="standard-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Formal change management</li>
+                                    <li>Comprehensive documentation</li>
+                                    <li>Risk management</li>
+                                    <li>Quality assurance</li>
+                                    <li>Compliance requirements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="standard">
+                        <h3>🚀 Startup Software Development</h3>
+                        <div class="standard-content">
+                            <h4>Typical Process:</h4>
+                            <ol>
+                                <li><strong>MVP Definition:</strong> Minimum Viable Product scope</li>
+                                <li><strong>Rapid Prototyping:</strong> Quick validation of concepts</li>
+                                <li><strong>User Feedback:</strong> Continuous user input and iteration</li>
+                                <li><strong>Agile Development:</strong> Short sprints with frequent releases</li>
+                                <li><strong>Continuous Deployment:</strong> Automated deployment pipeline</li>
+                                <li><strong>Data-Driven Decisions:</strong> Metrics-based product decisions</li>
+                                <li><strong>Scale Preparation:</strong> Architecture for growth</li>
+                            </ol>
+                            <div class="standard-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Rapid iteration</li>
+                                    <li>User-centric design</li>
+                                    <li>Lean documentation</li>
+                                    <li>Flexible requirements</li>
+                                    <li>Cost-effective solutions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="standard">
+                        <h3>🏛️ Government/Regulated Industries</h3>
+                        <div class="standard-content">
+                            <h4>Typical Process:</h4>
+                            <ol>
+                                <li><strong>Compliance Analysis:</strong> Regulatory requirements assessment</li>
+                                <li><strong>Security Requirements:</strong> Comprehensive security planning</li>
+                                <li><strong>Formal Documentation:</strong> Detailed requirement specifications</li>
+                                <li><strong>Approval Processes:</strong> Multi-level approval gates</li>
+                                <li><strong>Audit Trails:</strong> Complete change documentation</li>
+                                <li><strong>Testing Standards:</strong> Rigorous testing protocols</li>
+                                <li><strong>Certification:</strong> Third-party validation</li>
+                            </ol>
+                            <div class="standard-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Regulatory compliance</li>
+                                    <li>Security-first approach</li>
+                                    <li>Formal processes</li>
+                                    <li>Audit requirements</li>
+                                    <li>Long-term maintenance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="best-practices">
+                <h2>Best Practices</h2>
+                <div class="practices-grid">
+                    <div class="practice-category">
+                        <h3>📝 Documentation</h3>
+                        <ul>
+                            <li>Use clear, unambiguous language</li>
+                            <li>Include acceptance criteria</li>
+                            <li>Maintain version control</li>
+                            <li>Regular stakeholder reviews</li>
+                            <li>Visual aids (diagrams, mockups)</li>
+                        </ul>
+                    </div>
+                    <div class="practice-category">
+                        <h3>👥 Stakeholder Management</h3>
+                        <ul>
+                            <li>Identify all stakeholders early</li>
+                            <li>Regular communication</li>
+                            <li>Manage expectations</li>
+                            <li>Resolve conflicts promptly</li>
+                            <li>Maintain engagement</li>
+                        </ul>
+                    </div>
+                    <div class="practice-category">
+                        <h3>🔄 Change Management</h3>
+                        <ul>
+                            <li>Formal change process</li>
+                            <li>Impact analysis</li>
+                            <li>Approval workflows</li>
+                            <li>Communication of changes</li>
+                            <li>Update documentation</li>
+                        </ul>
+                    </div>
+                    <div class="practice-category">
+                        <h3>🧪 Quality Assurance</h3>
+                        <ul>
+                            <li>Requirement validation</li>
+                            <li>Traceability maintenance</li>
+                            <li>Regular reviews</li>
+                            <li>Testing alignment</li>
+                            <li>Continuous improvement</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tools-and-techniques">
+                <h2>Tools and Techniques</h2>
+                <div class="tools-categories">
+                    <div class="tool-category">
+                        <h3>📊 Requirement Management Tools</h3>
+                        <ul>
+                            <li><strong>Jira:</strong> Issue tracking and project management</li>
+                            <li><strong>Confluence:</strong> Documentation and collaboration</li>
+                            <li><strong>Azure DevOps:</strong> Complete DevOps platform</li>
+                            <li><strong>IBM DOORS:</strong> Enterprise requirement management</li>
+                            <li><strong>Polarion:</strong> Application lifecycle management</li>
+                        </ul>
+                    </div>
+                    <div class="tool-category">
+                        <h3>🎨 Modeling Tools</h3>
+                        <ul>
+                            <li><strong>Lucidchart:</strong> Diagramming and modeling</li>
+                            <li><strong>Draw.io:</strong> Free diagramming tool</li>
+                            <li><strong>Visio:</strong> Microsoft diagramming</li>
+                            <li><strong>Enterprise Architect:</strong> Comprehensive modeling</li>
+                            <li><strong>Balsamiq:</strong> Wireframing and prototyping</li>
+                        </ul>
+                    </div>
+                    <div class="tool-category">
+                        <h3>💬 Collaboration Tools</h3>
+                        <ul>
+                            <li><strong>Slack:</strong> Team communication</li>
+                            <li><strong>Microsoft Teams:</strong> Integrated collaboration</li>
+                            <li><strong>Zoom:</strong> Video conferencing</li>
+                            <li><strong>Miro:</strong> Virtual whiteboarding</li>
+                            <li><strong>Figma:</strong> Design collaboration</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="conclusion">
+                <h2>Conclusion</h2>
+                <p>Requirement Engineering and Software Development Processes are critical components of successful software projects. By following industry-standard practices and methodologies, teams can:</p>
+                
+                <div class="benefits-list">
+                    <ul>
+                        <li><strong>Reduce project risks</strong> through proper requirement analysis and validation</li>
+                        <li><strong>Improve communication</strong> between stakeholders and development teams</li>
+                        <li><strong>Ensure quality</strong> through systematic processes and reviews</li>
+                        <li><strong>Manage changes effectively</strong> with proper change control mechanisms</li>
+                        <li><strong>Deliver value</strong> by focusing on user needs and business objectives</li>
+                    </ul>
+                </div>
+
+                <p>Remember that no single methodology fits all projects. Choose the approach that best suits your project's characteristics, team capabilities, and organizational culture. The key is to be systematic, thorough, and adaptable throughout the development process.</p>
+            </section>
+
+            <div class="blog-post-footer">
+                <div class="tags">
+                    <span class="tag">Requirement Engineering</span>
+                    <span class="tag">Software Development</span>
+                    <span class="tag">Process</span>
+                    <span class="tag">Methodology</span>
+                    <span class="tag">Agile</span>
+                    <span class="tag">Waterfall</span>
+                    <span class="tag">DevOps</span>
+                    <span class="tag">Best Practices</span>
+                </div>
+                
+                <div class="share-section">
+                    <h4>Share this article:</h4>
+                    <div class="share-buttons">
+                        <button class="share-btn twitter">Twitter</button>
+                        <button class="share-btn linkedin">LinkedIn</button>
+                        <button class="share-btn facebook">Facebook</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</body>
+</html>
+
