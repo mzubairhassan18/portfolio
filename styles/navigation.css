@@ -392,8 +392,10 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 2rem;
+    padding: 0.5rem 0 1rem 0;
     transition: left 0.3s ease;
+    overflow-y: auto;
+    max-height: calc(100vh - 70px - env(safe-area-inset-top, 0px));
   }
 
   [data-theme="light"] .nav-menu {
@@ -405,11 +407,17 @@
   }
 
   .nav-link {
-    font-size: 1.2rem;
-    margin: 1rem 0;
-    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    margin: 0.25rem 0;
+    padding: 0.6rem 1.5rem;
     border-radius: 8px;
     transition: all 0.3s ease;
+    width: 90%;
+    text-align: center;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-link:hover {

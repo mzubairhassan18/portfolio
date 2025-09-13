@@ -2,6 +2,7 @@
 .btn {
   display: inline-flex !important;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 12px 24px;
   border: none;
@@ -15,6 +16,7 @@
   font-size: 1rem;
   visibility: visible !important;
   opacity: 1 !important;
+  line-height: 1;
 }
 
 .btn-primary {
@@ -47,6 +49,11 @@
   width: 16px;
   height: 16px;
   transition: transform 0.3s ease;
+  flex-shrink: 0;
+  vertical-align: middle;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
 }
 
 .btn:hover .btn-icon {

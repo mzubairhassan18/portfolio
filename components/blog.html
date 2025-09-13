@@ -1,0 +1,85 @@
+<!-- Blog Modal Overlay -->
+<div class="blog-modal-overlay" id="blog-modal-overlay">
+  <div class="blog-modal-content">
+    <!-- Blog Header -->
+    <div class="blog-modal-header">
+      <div class="blog-header-content">
+        <h2 class="blog-modal-title">Blog</h2>
+        <p class="blog-modal-subtitle">
+          Thoughts, tutorials, and insights from my journey
+        </p>
+      </div>
+      <button
+        class="blog-modal-close"
+        onclick="closeBlogModal()"
+        aria-label="Close Blog"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          style="stroke: currentColor; stroke-width: 2.5"
+        >
+          <line
+            x1="18"
+            y1="6"
+            x2="6"
+            y2="18"
+            style="stroke: currentColor; stroke-width: 2.5"
+          ></line>
+          <line
+            x1="6"
+            y1="6"
+            x2="18"
+            y2="18"
+            style="stroke: currentColor; stroke-width: 2.5"
+          ></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Blog Content Area -->
+    <div class="blog-modal-body">
+      <!-- Blog Loading State -->
+      <div class="blog-loading" id="blog-loading">
+        <div class="loading-spinner"></div>
+        <p>Loading blog posts...</p>
+      </div>
+
+      <!-- Blog Error State -->
+      <div class="blog-error" id="blog-error" style="display: none">
+        <div class="error-icon">⚠️</div>
+        <h3>Unable to load blog posts</h3>
+        <p>
+          There was an error loading the blog posts. Please try again later.
+        </p>
+        <button class="btn btn-primary" onclick="loadBlogPosts()">Retry</button>
+      </div>
+
+      <!-- Blog Posts Container -->
+      <div class="blog-posts" id="blog-posts" style="display: none">
+        <!-- Blog posts will be dynamically loaded here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Individual Blog Post Detail Modal -->
+  <div class="blog-post-modal" id="blog-post-modal">
+    <div class="blog-post-modal-overlay" onclick="closeBlogPostModal()"></div>
+    <div class="blog-post-modal-content">
+      <div class="blog-post-modal-header">
+        <button
+          class="blog-post-modal-close"
+          onclick="closeBlogPostModal()"
+          aria-label="Close"
+        >
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="blog-post-modal-body" id="blog-post-modal-body">
+        <!-- Individual blog post content will be loaded here -->
+      </div>
+    </div>
+  </div>
+</div>

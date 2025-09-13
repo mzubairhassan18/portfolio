@@ -21,6 +21,7 @@ async function loadComponents() {
     { id: "skills-container", file: "components/skills.html" },
     { id: "contact-container", file: "components/contact.html" },
     { id: "footer-container", file: "components/footer.html" },
+    { id: "blog-modal-container", file: "components/blog.html" },
   ];
 
   const loadPromises = components.map((component) => {
@@ -79,6 +80,9 @@ async function loadComponents() {
 
     // Initialize color scheme selector
     initColorSchemeSelector();
+
+    // Initialize blog system
+    initBlogSystem();
   }, 500);
 }
 
@@ -103,7 +107,21 @@ function initNavigation() {
 
   // Close mobile menu when clicking on links
   navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (e) => {
+      // Handle blog link specially
+      if (link.getAttribute("data-section") === "blog") {
+        e.preventDefault();
+        if (navToggle && navMenu) {
+          navToggle.classList.remove("active");
+          navMenu.classList.remove("active");
+        }
+        // Open blog modal
+        if (typeof openBlogModal === "function") {
+          openBlogModal();
+        }
+        return;
+      }
+
       if (navToggle && navMenu) {
         navToggle.classList.remove("active");
         navMenu.classList.remove("active");
@@ -318,7 +336,14 @@ function initSmoothScrolling() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
+      const href = this.getAttribute("href");
+
+      // Skip if href is just "#" (for blog link)
+      if (href === "#") {
+        return;
+      }
+
+      const target = document.querySelector(href);
       if (target) {
         target.scrollIntoView({
           behavior: "smooth",
