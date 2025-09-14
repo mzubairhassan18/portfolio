@@ -179,6 +179,45 @@ async function simulateBlogLoading() {
       // Load HTML blog posts
       blogPosts = [
         {
+          id: "ai-coding-human-thinking-leverage",
+          title: "AI & Coding: The Art of Human-AI Collaboration",
+          excerpt:
+            "The landscape of software development is undergoing a revolutionary transformation. Artificial Intelligence is not replacing human developers—it's amplifying our capabilities in unprecedented ways. This comprehensive guide explores how to excel in the age of AI-assisted development.",
+          date: "2026-01-05",
+          category: "AI & Development",
+          author: "Muhammad Zubair ul Hassan",
+          content: await loadHTMLContent(
+            "blogs/jan-5-2026/ai-coding-human-thinking-leverage.html"
+          ),
+          slug: "ai-coding-human-thinking-leverage",
+        },
+        {
+          id: "nextjs-vs-react-way-forward",
+          title: "Next.js vs React: The Way Forward in 2026",
+          excerpt:
+            "The React ecosystem has evolved dramatically, with Next.js emerging as a powerful framework that extends React's capabilities. As we navigate 2026, understanding when to choose Next.js over vanilla React becomes crucial for building scalable, performant applications.",
+          date: "2026-01-10",
+          category: "Web Development",
+          author: "Muhammad Zubair ul Hassan",
+          content: await loadHTMLContent(
+            "blogs/jan-10-2026/nextjs-vs-react-way-forward.html"
+          ),
+          slug: "nextjs-vs-react-way-forward",
+        },
+        {
+          id: "chat-system-database-nextjs-tutorial",
+          title: "Building a Real-Time Chat System with Next.js and Database",
+          excerpt:
+            "Building a real-time chat system requires careful consideration of architecture, database design, and user experience. This comprehensive tutorial will guide you through creating a production-ready chat application using Next.js, a modern database solution, and WebSocket technology.",
+          date: "2026-01-15",
+          category: "Full-Stack Development",
+          author: "Muhammad Zubair ul Hassan",
+          content: await loadHTMLContent(
+            "blogs/jan-15-2026/chat-system-database-nextjs-tutorial.html"
+          ),
+          slug: "chat-system-database-nextjs-tutorial",
+        },
+        {
           id: "nextjs-vuejs-angularjs-comparison",
           title: "Next.js vs Vue.js vs Angular.js: Complete Comparison",
           excerpt:

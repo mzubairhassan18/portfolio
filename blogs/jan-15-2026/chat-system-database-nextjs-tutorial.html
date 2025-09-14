@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building a Real-Time Chat System with Next.js and Database</title>
+</head>
+<body>
+    <article class="blog-post">
+        <header class="blog-post-header">
+            <div class="blog-post-meta">
+                <span class="blog-post-date">January 15, 2026</span>
+                <span class="blog-post-category">Full-Stack Development</span>
+            </div>
+            <h1>Building a Real-Time Chat System with Next.js and Database</h1>
+            <div class="blog-post-author">
+                <div class="author-avatar">M</div>
+                <span>By Muhammad Zubair ul Hassan</span>
+            </div>
+        </header>
+
+        <div class="blog-post-content">
+            <div class="hero-image">
+                <div class="graphic-hero">
+                    <div class="hero-icon">💬</div>
+                    <div class="hero-title">Real-Time Chat System</div>
+                    <div class="hero-subtitle">Next.js • Database • WebSocket</div>
+                    <div class="hero-decoration">
+                        <div class="decoration-line"></div>
+                        <div class="decoration-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="decoration-line"></div>
+                    </div>
+                </div>
+                <div class="image-caption">Complete guide to building a scalable chat application with modern technologies</div>
+            </div>
+
+            <section class="overview">
+                <h2>Overview</h2>
+                <p>Building a real-time chat system requires careful consideration of architecture, database design, and user experience. This comprehensive tutorial will guide you through creating a production-ready chat application using Next.js, a modern database solution, and WebSocket technology. We'll cover everything from initial setup to deployment, including best practices for scalability and security.</p>
+            </section>
+
+            <section class="architecture-overview">
+                <h2>System Architecture Overview</h2>
+                
+                <div class="architecture-diagram">
+                    <div class="architecture-components">
+                        <div class="component">
+                            <h3>🖥️ Frontend (Next.js)</h3>
+                            <div class="component-details">
+                                <ul>
+                                    <li>React components for UI</li>
+                                    <li>WebSocket client for real-time communication</li>
+                                    <li>State management for chat data</li>
+                                    <li>Responsive design for all devices</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="component">
+                            <h3>🔌 WebSocket Server</h3>
+                            <div class="component-details">
+                                <ul>
+                                    <li>Real-time message broadcasting</li>
+                                    <li>Connection management</li>
+                                    <li>User presence tracking</li>
+                                    <li>Message validation and filtering</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="component">
+                            <h3>🗄️ Database Layer</h3>
+                            <div class="component-details">
+                                <ul>
+                                    <li>Message persistence</li>
+                                    <li>User management</li>
+                                    <li>Chat room organization</li>
+                                    <li>Message history and search</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="component">
+                            <h3>🔐 Authentication</h3>
+                            <div class="component-details">
+                                <ul>
+                                    <li>User registration and login</li>
+                                    <li>JWT token management</li>
+                                    <li>Session handling</li>
+                                    <li>Authorization middleware</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="technology-stack">
+                <h2>Technology Stack</h2>
+                
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <h3>🎨 Frontend Technologies</h3>
+                        <div class="tech-list">
+                            <div class="tech-item">
+                                <h4>Next.js 14+</h4>
+                                <p>React framework with App Router, Server Components, and API routes</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>TypeScript</h4>
+                                <p>Type-safe development with better IDE support and error prevention</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Tailwind CSS</h4>
+                                <p>Utility-first CSS framework for rapid UI development</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Socket.io Client</h4>
+                                <p>Real-time communication library with fallback support</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category">
+                        <h3>⚙️ Backend Technologies</h3>
+                        <div class="tech-list">
+                            <div class="tech-item">
+                                <h4>Next.js API Routes</h4>
+                                <p>Server-side API endpoints for authentication and data management</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Socket.io Server</h4>
+                                <p>WebSocket server for real-time communication</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Prisma ORM</h4>
+                                <p>Type-safe database access and query building</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>PostgreSQL</h4>
+                                <p>Reliable relational database for data persistence</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category">
+                        <h3>🔐 Security & Authentication</h3>
+                        <div class="tech-list">
+                            <div class="tech-item">
+                                <h4>NextAuth.js</h4>
+                                <p>Authentication library with multiple provider support</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>JWT Tokens</h4>
+                                <p>Secure token-based authentication</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>bcrypt</h4>
+                                <p>Password hashing and security</p>
+                            </div>
+                            <div class="tech-item">
+                                <h4>Rate Limiting</h4>
+                                <p>Protection against spam and abuse</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="database-design">
+                <h2>Database Schema Design</h2>
+                
+                <div class="schema-overview">
+                    <div class="schema-table">
+                        <h3>👤 Users Table</h3>
+                        <div class="table-schema">
+                            <pre><code>model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  username  String   @unique
+  password  String
+  avatar    String?
+  isOnline  Boolean  @default(false)
+  lastSeen  DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  messages  Message[]
+  rooms     RoomUser[]
+  ownedRooms Room[] @relation("RoomOwner")
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="schema-table">
+                        <h3>🏠 Rooms Table</h3>
+                        <div class="table-schema">
+                            <pre><code>model Room {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  type        RoomType @default(GROUP)
+  ownerId     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  owner   User       @relation("RoomOwner", fields: [ownerId], references: [id])
+  users   RoomUser[]
+  messages Message[]
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="schema-table">
+                        <h3>💬 Messages Table</h3>
+                        <div class="table-schema">
+                            <pre><code>model Message {
+  id        String   @id @default(cuid())
+  content   String
+  type      MessageType @default(TEXT)
+  roomId    String
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  room Room @relation(fields: [roomId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="schema-table">
+                        <h3>🔗 RoomUser Junction Table</h3>
+                        <div class="table-schema">
+                            <pre><code>model RoomUser {
+  id     String @id @default(cuid())
+  roomId String
+  userId String
+  
+  // Relations
+  room Room @relation(fields: [roomId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+  
+  @@unique([roomId, userId])
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="implementation-guide">
+                <h2>Step-by-Step Implementation</h2>
+                
+                <div class="implementation-steps">
+                    <div class="step">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <h3>Project Setup</h3>
+                        </div>
+                        <div class="step-content">
+                            <h4>Initialize Next.js Project</h4>
+                            <pre><code>npx create-next-app@latest chat-app --typescript --tailwind --eslint
+cd chat-app
+npm install prisma @prisma/client socket.io socket.io-client
+npm install next-auth bcryptjs @types/bcryptjs
+npm install @types/node</code></pre>
+                            
+                            <h4>Environment Configuration</h4>
+                            <pre><code># .env.local
+DATABASE_URL="postgresql://username:password@localhost:5432/chatdb"
+NEXTAUTH_SECRET="your-secret-key"
+NEXTAUTH_URL="http://localhost:3000"</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <h3>Database Setup</h3>
+                        </div>
+                        <div class="step-content">
+                            <h4>Initialize Prisma</h4>
+                            <pre><code>npx prisma init
+npx prisma generate
+npx prisma db push</code></pre>
+                            
+                            <h4>Prisma Client Configuration</h4>
+                            <pre><code>// lib/prisma.ts
+import { PrismaClient } from '@prisma/client'
+
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient | undefined
+}
+
+export const prisma = globalForPrisma.prisma ?? new PrismaClient()
+
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <h3>Authentication Setup</h3>
+                        </div>
+                        <div class="step-content">
+                            <h4>NextAuth Configuration</h4>
+                            <pre><code>// app/api/auth/[...nextauth]/route.ts
+import NextAuth from 'next-auth'
+import CredentialsProvider from 'next-auth/providers/credentials'
+import bcrypt from 'bcryptjs'
+import { prisma } from '@/lib/prisma'
+
+const handler = NextAuth({
+  providers: [
+    CredentialsProvider({
+      name: 'credentials',
+      credentials: {
+        email: { label: 'Email', type: 'email' },
+        password: { label: 'Password', type: 'password' }
+      },
+      async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password) {
+          return null
+        }
+
+        const user = await prisma.user.findUnique({
+          where: { email: credentials.email }
+        })
+
+        if (!user || !await bcrypt.compare(credentials.password, user.password)) {
+          return null
+        }
+
+        return {
+          id: user.id,
+          email: user.email,
+          username: user.username,
+        }
+      }
+    })
+  ],
+  session: { strategy: 'jwt' },
+  pages: {
+    signIn: '/auth/signin',
+  }
+})
+
+export { handler as GET, handler as POST }</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-header">
+                            <div class="step-number">4</div>
+                            <h3>WebSocket Server Setup</h3>
+                        </div>
+                        <div class="step-content">
+                            <h4>Socket.io Server Configuration</h4>
+                            <pre><code>// lib/socket.ts
+import { Server } from 'socket.io'
+import { NextServer } from 'next/dist/server/next'
+import { NextSocketServer } from 'next/dist/server/next-server'
+
+export const initSocket = (server: NextServer) => {
+  const io = new NextSocketServer(server, {
+    cors: {
+      origin: process.env.NEXTAUTH_URL,
+      methods: ['GET', 'POST']
+    }
+  })
+
+  io.on('connection', (socket) => {
+    console.log('User connected:', socket.id)
+
+    // Join room
+    socket.on('join-room', async (roomId: string) => {
+      socket.join(roomId)
+      socket.emit('joined-room', roomId)
+    })
+
+    // Send message
+    socket.on('send-message', async (data) => {
+      const { roomId, content, userId } = data
+      
+      // Save message to database
+      const message = await prisma.message.create({
+        data: {
+          content,
+          roomId,
+          userId,
+        },
+        include: {
+          user: {
+            select: {
+              id: true,
+              username: true,
+              avatar: true
+            }
+          }
+        }
+      })
+
+      // Broadcast message to room
+      io.to(roomId).emit('new-message', message)
+    })
+
+    // Handle disconnection
+    socket.on('disconnect', () => {
+      console.log('User disconnected:', socket.id)
+    })
+  })
+
+  return io
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-header">
+                            <div class="step-number">5</div>
+                            <h3>Frontend Components</h3>
+                        </div>
+                        <div class="step-content">
+                            <h4>Chat Room Component</h4>
+                            <pre><code>// components/ChatRoom.tsx
+'use client'
+
+import { useState, useEffect, useRef } from 'react'
+import { io, Socket } from 'socket.io-client'
+
+interface Message {
+  id: string
+  content: string
+  userId: string
+  user: {
+    username: string
+    avatar?: string
+  }
+  createdAt: string
+}
+
+interface ChatRoomProps {
+  roomId: string
+  userId: string
+}
+
+export default function ChatRoom({ roomId, userId }: ChatRoomProps) {
+  const [messages, setMessages] = useState<Message[]>([])
+  const [newMessage, setNewMessage] = useState('')
+  const [socket, setSocket] = useState<Socket | null>(null)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const newSocket = io()
+    setSocket(newSocket)
+
+    newSocket.emit('join-room', roomId)
+
+    newSocket.on('new-message', (message: Message) => {
+      setMessages(prev => [...prev, message])
+    })
+
+    return () => {
+      newSocket.close()
+    }
+  }, [roomId])
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages])
+
+  const sendMessage = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (newMessage.trim() && socket) {
+      socket.emit('send-message', {
+        roomId,
+        content: newMessage.trim(),
+        userId
+      })
+      setNewMessage('')
+    }
+  }
+
+  return (
+    <div className="flex flex-col h-full">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {messages.map((message) => (
+          <div key={message.id} className="flex items-start space-x-3">
+            <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm">
+              {message.user.username[0].toUpperCase()}
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center space-x-2">
+                <span className="font-semibold text-sm">{message.user.username}</span>
+                <span className="text-xs text-gray-500">
+                  {new Date(message.createdAt).toLocaleTimeString()}
+                </span>
+              </div>
+              <p className="text-gray-800">{message.content}</p>
+            </div>
+          </div>
+        ))}
+        <div ref={messagesEndRef} />
+      </div>
+      
+      <form onSubmit={sendMessage} className="p-4 border-t">
+        <div className="flex space-x-2">
+          <input
+            type="text"
+            value={newMessage}
+            onChange={(e) => setNewMessage(e.target.value)}
+            placeholder="Type a message..."
+            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            type="submit"
+            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
+  )
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="advanced-features">
+                <h2>Advanced Features Implementation</h2>
+                
+                <div class="features-grid">
+                    <div class="feature">
+                        <h3>👥 User Presence</h3>
+                        <div class="feature-details">
+                            <h4>Implementation:</h4>
+                            <pre><code>// Track user online status
+socket.on('user-online', (userId) => {
+  setOnlineUsers(prev => [...prev, userId])
+})
+
+socket.on('user-offline', (userId) => {
+  setOnlineUsers(prev => prev.filter(id => id !== userId))
+})</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <h3>📎 File Sharing</h3>
+                        <div class="feature-details">
+                            <h4>Implementation:</h4>
+                            <pre><code>// Handle file uploads
+const handleFileUpload = async (file: File) => {
+  const formData = new FormData()
+  formData.append('file', file)
+  
+  const response = await fetch('/api/upload', {
+    method: 'POST',
+    body: formData
+  })
+  
+  const { url } = await response.json()
+  return url
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <h3>🔍 Message Search</h3>
+                        <div class="feature-details">
+                            <h4>Implementation:</h4>
+                            <pre><code>// Search messages API
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url)
+  const query = searchParams.get('q')
+  const roomId = searchParams.get('roomId')
+  
+  const messages = await prisma.message.findMany({
+    where: {
+      roomId,
+      content: {
+        contains: query,
+        mode: 'insensitive'
+      }
+    },
+    include: { user: true },
+    orderBy: { createdAt: 'desc' }
+  })
+  
+  return Response.json(messages)
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <h3>🔔 Notifications</h3>
+                        <div class="feature-details">
+                            <h4>Implementation:</h4>
+                            <pre><code>// Push notifications
+const sendNotification = async (userId: string, message: string) => {
+  const user = await prisma.user.findUnique({
+    where: { id: userId }
+  })
+  
+  if (user?.pushToken) {
+    await fetch('https://fcm.googleapis.com/fcm/send', {
+      method: 'POST',
+      headers: {
+        'Authorization': `key=${process.env.FCM_SERVER_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        to: user.pushToken,
+        notification: {
+          title: 'New Message',
+          body: message
+        }
+      })
+    })
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="performance-optimization">
+                <h2>Performance Optimization Strategies</h2>
+                
+                <div class="optimization-categories">
+                    <div class="optimization-category">
+                        <h3>🚀 Frontend Optimizations</h3>
+                        <ul>
+                            <li><strong>Virtual Scrolling:</strong> Render only visible messages for large chat histories</li>
+                            <li><strong>Message Pagination:</strong> Load messages in chunks to reduce initial load time</li>
+                            <li><strong>Debounced Input:</strong> Reduce API calls for typing indicators</li>
+                            <li><strong>Image Optimization:</strong> Compress and lazy load images</li>
+                            <li><strong>Bundle Splitting:</strong> Code split chat components</li>
+                        </ul>
+                    </div>
+
+                    <div class="optimization-category">
+                        <h3>🗄️ Database Optimizations</h3>
+                        <ul>
+                            <li><strong>Indexing:</strong> Create indexes on frequently queried fields</li>
+                            <li><strong>Connection Pooling:</strong> Optimize database connections</li>
+                            <li><strong>Query Optimization:</strong> Use efficient queries and joins</li>
+                            <li><strong>Caching:</strong> Implement Redis for frequently accessed data</li>
+                            <li><strong>Archiving:</strong> Move old messages to archive tables</li>
+                        </ul>
+                    </div>
+
+                    <div class="optimization-category">
+                        <h3>🔌 WebSocket Optimizations</h3>
+                        <ul>
+                            <li><strong>Room Management:</strong> Efficiently manage room subscriptions</li>
+                            <li><strong>Message Batching:</strong> Batch multiple messages for better performance</li>
+                            <li><strong>Connection Limits:</strong> Implement rate limiting and connection limits</li>
+                            <li><strong>Heartbeat:</strong> Implement ping/pong for connection health</li>
+                            <li><strong>Scaling:</strong> Use Redis adapter for horizontal scaling</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="security-considerations">
+                <h2>Security Considerations</h2>
+                
+                <div class="security-categories">
+                    <div class="security-category">
+                        <h3>🔐 Authentication & Authorization</h3>
+                        <ul>
+                            <li>Implement proper JWT token validation</li>
+                            <li>Use HTTPS for all communications</li>
+                            <li>Implement rate limiting on API endpoints</li>
+                            <li>Validate user permissions for room access</li>
+                            <li>Sanitize all user inputs</li>
+                        </ul>
+                    </div>
+
+                    <div class="security-category">
+                        <h3>🛡️ Data Protection</h3>
+                        <ul>
+                            <li>Encrypt sensitive data in the database</li>
+                            <li>Implement proper password hashing with bcrypt</li>
+                            <li>Use environment variables for sensitive configuration</li>
+                            <li>Implement CORS policies</li>
+                            <li>Regular security audits and updates</li>
+                        </ul>
+                    </div>
+
+                    <div class="security-category">
+                        <h3>🚨 Monitoring & Logging</h3>
+                        <ul>
+                            <li>Implement comprehensive logging</li>
+                            <li>Monitor for suspicious activities</li>
+                            <li>Set up alerts for security incidents</li>
+                            <li>Implement audit trails</li>
+                            <li>Regular backup and recovery procedures</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="deployment-guide">
+                <h2>Deployment Guide</h2>
+                
+                <div class="deployment-options">
+                    <div class="deployment-option">
+                        <h3>☁️ Vercel Deployment</h3>
+                        <div class="deployment-steps">
+                            <h4>Steps:</h4>
+                            <ol>
+                                <li>Push code to GitHub repository</li>
+                                <li>Connect repository to Vercel</li>
+                                <li>Configure environment variables</li>
+                                <li>Set up PostgreSQL database (Vercel Postgres)</li>
+                                <li>Deploy and configure custom domain</li>
+                            </ol>
+                            
+                            <h4>Configuration:</h4>
+                            <pre><code># vercel.json
+{
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "NEXTAUTH_SECRET": "@nextauth_secret"
+  }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="deployment-option">
+                        <h3>🐳 Docker Deployment</h3>
+                        <div class="deployment-steps">
+                            <h4>Dockerfile:</h4>
+                            <pre><code>FROM node:18-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci --only=production
+
+COPY . .
+RUN npm run build
+
+EXPOSE 3000
+
+CMD ["npm", "start"]</code></pre>
+                            
+                            <h4>Docker Compose:</h4>
+                            <pre><code>version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/chatdb
+    depends_on:
+      - db
+  
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=chatdb
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="testing-strategies">
+                <h2>Testing Strategies</h2>
+                
+                <div class="testing-categories">
+                    <div class="testing-category">
+                        <h3>🧪 Unit Testing</h3>
+                        <div class="testing-details">
+                            <h4>Components Testing:</h4>
+                            <pre><code>// __tests__/ChatRoom.test.tsx
+import { render, screen, fireEvent } from '@testing-library/react'
+import ChatRoom from '@/components/ChatRoom'
+
+test('renders chat room with messages', () => {
+  render(&lt;ChatRoom roomId="test-room" userId="test-user" /&gt;)
+  expect(screen.getByPlaceholderText('Type a message...')).toBeInTheDocument()
+})</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="testing-category">
+                        <h3>🔌 Integration Testing</h3>
+                        <div class="testing-details">
+                            <h4>API Testing:</h4>
+                            <pre><code>// __tests__/api/messages.test.ts
+import { createMocks } from 'node-mocks-http'
+import handler from '@/app/api/messages/route'
+
+test('GET /api/messages returns messages', async () => {
+  const { req, res } = createMocks({
+    method: 'GET',
+    query: { roomId: 'test-room' }
+  })
+
+  await handler(req, res)
+  expect(res._getStatusCode()).toBe(200)
+})</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="testing-category">
+                        <h3>🌐 End-to-End Testing</h3>
+                        <div class="testing-details">
+                            <h4>Playwright Testing:</h4>
+                            <pre><code>// tests/chat.spec.ts
+import { test, expect } from '@playwright/test'
+
+test('user can send and receive messages', async ({ page }) => {
+  await page.goto('/chat/test-room')
+  
+  await page.fill('[placeholder="Type a message..."]', 'Hello World')
+  await page.click('button[type="submit"]')
+  
+  await expect(page.locator('text=Hello World')).toBeVisible()
+})</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="conclusion">
+                <h2>Conclusion</h2>
+                <p>Building a real-time chat system with Next.js and a modern database requires careful planning, implementation, and optimization. This comprehensive guide has covered everything from initial setup to deployment, providing you with the knowledge and tools needed to create a production-ready chat application.</p>
+                
+                <div class="key-takeaways">
+                    <h3>Key Takeaways:</h3>
+                    <ul>
+                        <li><strong>Architecture matters:</strong> Plan your system architecture before implementation</li>
+                        <li><strong>Real-time communication:</strong> WebSockets are essential for instant messaging</li>
+                        <li><strong>Database design:</strong> Proper schema design ensures scalability and performance</li>
+                        <li><strong>Security first:</strong> Implement security measures from the beginning</li>
+                        <li><strong>Performance optimization:</strong> Monitor and optimize for better user experience</li>
+                        <li><strong>Testing is crucial:</strong> Comprehensive testing ensures reliability</li>
+                    </ul>
+                </div>
+
+                <p>Remember that building a chat system is an iterative process. Start with core functionality, test thoroughly, and gradually add advanced features. Focus on user experience, security, and performance to create a chat application that users will love to use.</p>
+            </section>
+
+            <div class="blog-post-footer">
+                <div class="tags">
+                    <span class="tag">Next.js</span>
+                    <span class="tag">Real-Time Chat</span>
+                    <span class="tag">WebSocket</span>
+                    <span class="tag">Database</span>
+                    <span class="tag">Prisma</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Full-Stack</span>
+                    <span class="tag">Tutorial</span>
+                </div>
+                
+                <div class="share-section">
+                    <h4>Share this article:</h4>
+                    <div class="share-buttons">
+                        <button class="share-btn twitter">Twitter</button>
+                        <button class="share-btn linkedin">LinkedIn</button>
+                        <button class="share-btn facebook">Facebook</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</body>
+</html>
+
