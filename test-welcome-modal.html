@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Modal Test</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="styles/welcome-modal.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body data-theme="dark">
+    <div style="padding: 2rem; text-align: center">
+      <h1>Welcome Modal Test Page</h1>
+      <p>This page tests the welcome modal functionality.</p>
+
+      <div style="margin: 2rem 0">
+        <button
+          onclick="showWelcomeModal()"
+          class="btn btn-primary"
+          style="margin: 0.5rem"
+        >
+          Show Welcome Modal
+        </button>
+        <button
+          onclick="displayRandomQuote()"
+          class="btn btn-secondary"
+          style="margin: 0.5rem"
+        >
+          Change Quote
+        </button>
+        <button
+          onclick="resetWelcomeModal()"
+          class="btn btn-secondary"
+          style="margin: 0.5rem"
+        >
+          Reset Modal (for testing)
+        </button>
+      </div>
+
+      <p><strong>Instructions:</strong></p>
+      <ul style="text-align: left; max-width: 600px; margin: 0 auto">
+        <li>Click "Show Welcome Modal" to see the modal popup</li>
+        <li>Click "Change Quote" to see a different random quote</li>
+        <li>
+          Click "Reset Modal" to allow the modal to show again automatically
+        </li>
+        <li>
+          The modal will automatically appear after 3 seconds on first visit
+        </li>
+        <li>Press ESC or click outside the modal to close it</li>
+      </ul>
+    </div>
+
+    <!-- Welcome Modal -->
+    <div id="welcome-modal" class="welcome-modal-overlay">
+      <div class="welcome-modal-content">
+        <div class="welcome-modal-header">
+          <div class="welcome-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h2 class="welcome-title">Welcome to My Portfolio!</h2>
+          <p class="welcome-subtitle">
+            Thank you for visiting my digital space
+          </p>
+        </div>
+
+        <div class="welcome-modal-body">
+          <div class="quote-container">
+            <div class="quote-icon">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <blockquote class="life-quote" id="life-quote">
+              <!-- Random quote will be inserted here -->
+            </blockquote>
+            <div class="quote-author" id="quote-author">
+              <!-- Quote author will be inserted here -->
+            </div>
+          </div>
+        </div>
+
+        <div class="welcome-modal-footer">
+          <button
+            class="btn btn-primary welcome-continue-btn"
+            onclick="closeWelcomeModal()"
+          >
+            <span>Continue Exploring</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/welcome-modal.js"></script>
+    <script>
+      // Initialize the modal for testing
+      document.addEventListener("DOMContentLoaded", function () {
+        // Show modal immediately for testing (override the 3-second delay)
+        setTimeout(() => {
+          showWelcomeModal();
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

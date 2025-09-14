@@ -1,6 +1,6 @@
 /* Hero Section Styles */
 .hero {
-  min-height: 100vh;
+  min-height: 80vh; /* Reduced from 100vh to 80vh */
   display: flex;
   align-items: center;
   position: relative;
@@ -11,6 +11,7 @@
     var(--bg-tertiary) 100%
   );
   overflow: hidden;
+  padding: 140px 0; /* Added padding for better spacing */
 }
 
 .hero-background {

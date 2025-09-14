@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="styles/skills-animation.css" />
     <link rel="stylesheet" href="styles/blog.css" />
     <link rel="stylesheet" href="styles/game.css" />
+    <link rel="stylesheet" href="styles/welcome-modal.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -55,6 +56,45 @@
 
     <!-- Footer -->
     <div id="footer-container"></div>
+
+    <!-- Welcome Modal -->
+    <div id="welcome-modal" class="welcome-modal-overlay">
+      <div class="welcome-modal-content">
+        <div class="welcome-modal-header">
+          <div class="welcome-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h2 class="welcome-title">Welcome to My Portfolio!</h2>
+          <p class="welcome-subtitle">
+            Thank you for visiting my digital space
+          </p>
+        </div>
+
+        <div class="welcome-modal-body">
+          <div class="quote-container">
+            <div class="quote-icon">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <blockquote class="life-quote" id="life-quote">
+              <!-- Random quote will be inserted here -->
+            </blockquote>
+            <div class="quote-author" id="quote-author">
+              <!-- Quote author will be inserted here -->
+            </div>
+          </div>
+        </div>
+
+        <div class="welcome-modal-footer">
+          <button
+            class="btn btn-primary welcome-continue-btn"
+            onclick="closeWelcomeModal()"
+          >
+            <span>Continue Exploring</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Blog Modal -->
     <div id="blog-modal-container">
@@ -153,6 +193,7 @@
     <script src="js/blog.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/game.js"></script>
+    <script src="js/welcome-modal.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

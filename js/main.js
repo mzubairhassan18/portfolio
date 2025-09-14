@@ -94,6 +94,11 @@ async function loadComponents() {
     if (typeof reinitGameParticles === "function") {
       reinitGameParticles();
     }
+
+    // Initialize welcome modal
+    if (typeof initWelcomeModal === "function") {
+      initWelcomeModal();
+    }
   }, 500);
 }
 
