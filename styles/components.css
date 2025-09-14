@@ -56,6 +56,12 @@
   fill: none;
 }
 
+.btn-icon line,
+.btn-icon polygon {
+  stroke: currentColor;
+  fill: none;
+}
+
 .btn:hover .btn-icon {
   transform: translateX(4px);
 }
@@ -169,6 +175,14 @@
 .social-link svg {
   width: 20px;
   height: 20px;
+  fill: currentColor;
+  stroke: currentColor;
+  transition: all 0.3s ease;
+}
+
+.social-link svg path {
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 /* Tech Tags */
@@ -255,11 +269,28 @@
   justify-content: center;
   color: var(--accent-primary);
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.contact-icon:hover {
+  background: var(--accent-primary);
+  color: white;
+  transform: translateY(-2px);
 }
 
 .contact-icon svg {
   width: 24px;
   height: 24px;
+  fill: currentColor;
+  stroke: currentColor;
+  transition: all 0.3s ease;
+}
+
+.contact-icon svg path,
+.contact-icon svg polyline,
+.contact-icon svg circle {
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 .contact-details h4 {
@@ -290,6 +321,33 @@
   border-top: 2px solid transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
+}
+
+/* Footer Icons */
+.footer .social-link {
+  background: var(--border-color);
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.footer .social-link:hover {
+  background: var(--accent-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.footer .social-link svg {
+  fill: currentColor;
+  stroke: currentColor;
+  transition: all 0.3s ease;
+}
+
+.footer .social-link svg path,
+.footer .social-link svg rect,
+.footer .social-link svg circle,
+.footer .social-link svg polyline {
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 /* Tooltips */
