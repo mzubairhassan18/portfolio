@@ -339,6 +339,7 @@
     order: 2;
     justify-content: center;
     flex: 1;
+    margin-top: 50px;
   }
 
   .mobile-logo .logo-text {
