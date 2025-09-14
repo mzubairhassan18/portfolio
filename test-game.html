@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Match Game Test</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/game.css" />
+    <style>
+      body {
+        padding: 2rem;
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body data-theme="dark">
+    <h1>Color Match Reaction Game Test</h1>
+
+    <!-- Game Section -->
+    <div id="game-container">
+      <section class="game-section" id="game">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Color Match Reaction Game</h2>
+            <p class="section-subtitle">
+              Test your reaction time and color recognition skills!
+            </p>
+          </div>
+
+          <div class="game-container">
+            <div class="game-info">
+              <div class="score-display">
+                <div class="score-item">
+                  <span class="score-label">Score</span>
+                  <span class="score-value" id="current-score">0</span>
+                </div>
+                <div class="score-item">
+                  <span class="score-label">High Score</span>
+                  <span class="score-value" id="high-score">0</span>
+                </div>
+                <div class="score-item">
+                  <span class="score-label">Time</span>
+                  <span class="score-value" id="game-time">0.0s</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="game-area">
+              <div class="game-instructions" id="game-instructions">
+                <h3>How to Play</h3>
+                <p>Click the color that matches the word shown!</p>
+                <p>Be quick and accurate to get a high score!</p>
+                <button class="btn btn-primary" id="start-game">
+                  Start Game
+                </button>
+              </div>
+
+              <div class="game-play" id="game-play" style="display: none">
+                <div class="word-display" id="word-display">READY</div>
+                <div class="color-options" id="color-options">
+                  <button class="color-btn" data-color="red">RED</button>
+                  <button class="color-btn" data-color="blue">BLUE</button>
+                  <button class="color-btn" data-color="green">GREEN</button>
+                  <button class="color-btn" data-color="yellow">YELLOW</button>
+                  <button class="color-btn" data-color="purple">PURPLE</button>
+                  <button class="color-btn" data-color="orange">ORANGE</button>
+                </div>
+              </div>
+
+              <div class="game-result" id="game-result" style="display: none">
+                <div class="result-content">
+                  <h3 id="result-title">Game Over!</h3>
+                  <p id="result-message">
+                    Your reaction time was: <span id="final-time">0.0s</span>
+                  </p>
+                  <p id="result-score">
+                    Final Score: <span id="final-score">0</span>
+                  </p>
+                  <div class="result-buttons">
+                    <button class="btn btn-primary" id="retry-game">
+                      Play Again
+                    </button>
+                    <button class="btn btn-secondary" id="back-to-menu">
+                      Back to Menu
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="game-controls">
+              <button
+                class="btn btn-secondary"
+                id="pause-game"
+                style="display: none"
+              >
+                Pause
+              </button>
+              <button
+                class="btn btn-secondary"
+                id="stop-game"
+                style="display: none"
+              >
+                Stop
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/game.js"></script>
+  </body>
+</html>

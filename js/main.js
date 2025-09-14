@@ -16,6 +16,7 @@ async function loadComponents() {
   const components = [
     { id: "nav-container", file: "components/nav.html" },
     { id: "hero-container", file: "components/hero.html" },
+    { id: "game-container", file: "components/game.html" },
     { id: "about-container", file: "components/about.html" },
     { id: "projects-container", file: "components/projects.html" },
     { id: "skills-container", file: "components/skills.html" },
@@ -83,6 +84,16 @@ async function loadComponents() {
 
     // Initialize blog system
     initBlogSystem();
+
+    // Initialize color match game
+    if (typeof initColorMatchGame === "function") {
+      initColorMatchGame();
+    }
+
+    // Initialize game particles
+    if (typeof reinitGameParticles === "function") {
+      reinitGameParticles();
+    }
   }, 500);
 }
 

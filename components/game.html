@@ -1,0 +1,95 @@
+<section class="game-section" id="game">
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Color Match Reaction Game</h2>
+      <p class="section-subtitle">
+        Test your reaction time and color recognition skills!
+      </p>
+    </div>
+
+    <div class="game-container">
+      <div class="game-info">
+        <div class="score-display">
+          <div class="score-item">
+            <span class="score-label">Score</span>
+            <span class="score-value" id="current-score">0</span>
+          </div>
+          <div class="score-item">
+            <span class="score-label">High Score</span>
+            <span class="score-value" id="high-score">0</span>
+          </div>
+          <div class="score-item">
+            <span class="score-label">Time</span>
+            <span class="score-value" id="game-time">0.0s</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-area">
+        <div class="game-instructions" id="game-instructions">
+          <h3>How to Play</h3>
+          <p>
+            Watch the colored rectangle and match it with one of the three
+            circles below!
+          </p>
+          <p>Click before the timer runs out or the game ends!</p>
+          <button class="btn btn-primary" id="start-game">Start Game</button>
+        </div>
+
+        <div class="game-play" id="game-play" style="display: none">
+          <div class="target-color-display" id="target-color-display">
+            <div class="color-rectangle" id="color-rectangle"></div>
+          </div>
+
+          <div class="color-options" id="color-options">
+            <button class="color-circle" data-color="red"></button>
+            <button class="color-circle" data-color="blue"></button>
+            <button class="color-circle" data-color="green"></button>
+          </div>
+        </div>
+
+        <div class="game-result" id="game-result" style="display: none">
+          <div class="result-content">
+            <h3 id="result-title">Game Over!</h3>
+            <p id="result-message">
+              Your reaction time was: <span id="final-time">0.0s</span>
+            </p>
+            <p id="result-score">
+              Final Score: <span id="final-score">0</span>
+            </p>
+            <div class="result-buttons">
+              <button class="btn btn-primary" id="retry-game">
+                Play Again
+              </button>
+              <button class="btn btn-secondary" id="back-to-menu">
+                Back to Menu
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-controls">
+        <button
+          class="btn btn-secondary game-control-btn"
+          id="pause-game"
+          style="display: none"
+          title="Pause Game"
+        >
+          <i class="fas fa-pause"></i>
+        </button>
+        <button
+          class="btn btn-secondary game-control-btn"
+          id="stop-game"
+          style="display: none"
+          title="Stop Game"
+        >
+          <i class="fas fa-stop"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
