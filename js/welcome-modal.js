@@ -1,7 +1,74 @@
 // Welcome Modal JavaScript
 
-// Array of 20 inspiring life quotes
+// Array of inspiring life quotes including Islamic wisdom
 const lifeQuotes = [
+  // Islamic Quotes - Prophet Muhammad (PBUH)
+  {
+    quote: "The best of people are those who benefit others.",
+    author: "Prophet Muhammad (PBUH)",
+  },
+  {
+    quote:
+      "Whoever believes in Allah and the Last Day should speak good or remain silent.",
+    author: "Prophet Muhammad (PBUH)",
+  },
+  {
+    quote:
+      "The believer is not one who eats his fill while his neighbor goes hungry.",
+    author: "Prophet Muhammad (PBUH)",
+  },
+  {
+    quote: "The best charity is that given when one is healthy and wealthy.",
+    author: "Prophet Muhammad (PBUH)",
+  },
+  {
+    quote:
+      "Actions are according to intentions, and everyone will get what was intended.",
+    author: "Prophet Muhammad (PBUH)",
+  },
+  {
+    quote:
+      "The strong believer is better and more beloved to Allah than the weak believer.",
+    author: "Prophet Muhammad (PBUH)",
+  },
+  {
+    quote: "Seek knowledge from the cradle to the grave.",
+    author: "Prophet Muhammad (PBUH)",
+  },
+  {
+    quote: "The best of you are those who are best to their families.",
+    author: "Prophet Muhammad (PBUH)",
+  },
+
+  // Sahaba (Companions) Quotes
+  {
+    quote: "Knowledge without action is like a tree without fruit.",
+    author: "Umar ibn al-Khattab (RA)",
+  },
+  {
+    quote:
+      "The best of deeds is that which is done consistently, even if it is small.",
+    author: "Aisha (RA)",
+  },
+  {
+    quote: "Do not be a slave to others when Allah has created you free.",
+    author: "Ali ibn Abi Talib (RA)",
+  },
+  {
+    quote:
+      "The believer is like a bee that eats only good things and produces only good things.",
+    author: "Abu Bakr (RA)",
+  },
+  {
+    quote: "Patience is the key to relief.",
+    author: "Umar ibn al-Khattab (RA)",
+  },
+  {
+    quote: "The best of people are those who are most beneficial to others.",
+    author: "Abu Bakr (RA)",
+  },
+
+  // Modern Inspirational Quotes
   {
     quote: "The only way to do great work is to love what you do.",
     author: "Steve Jobs",
